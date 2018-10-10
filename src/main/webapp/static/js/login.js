@@ -7,9 +7,10 @@ var path6 = "http://45.76.198.134:8080/cg/";//耀友远程
 var path7 = "http://119.29.200.238:8080/cg/";//耀友腾讯云
 
 var path8 = "http://localhost:8080/cg/";//本地环境
+var path10 = "http://193.112.26.124/cg/"; //家伟腾讯云
 
 
-var path = path8;
+var path = path10;
 
 $(function() {
     $("#staffNum").blur(function() {
