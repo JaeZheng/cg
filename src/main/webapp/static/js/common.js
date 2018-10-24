@@ -9,7 +9,7 @@ var path8 = "http://localhost:8080/cg/"; //本地环境
 var path9 = "http://120.77.39.33:8080/cg/"; //耀友远程无权限
 var path10 = "http://193.112.26.124/cg/"; //家伟腾讯云
 
-var path = path10;
+var path = path8;
 
 
 $(document).ready(function () {
@@ -2524,6 +2524,7 @@ function initModal() {
     });
 
     //获取职位信息
+    console.log("initModal中调用getRoleData...");
     var roleResult = getRoleData();
     setRole(roleResult,$("select[id*=role]"));
 
@@ -3408,7 +3409,7 @@ function getRoleData() {
         contentType: "application/json;charset=UTF-8",
         dataType: "json",
         success: function (data) {
-            if (data.code == 0) {
+            if (data.code === 0) {
                 roleResult = data.result;
             }
         }
@@ -3467,6 +3468,7 @@ function getSelectedCondition(divId) {
 function toggleDescriptionToId(roleSelected) {
     var roleId = [],
         roleDescription = [];
+    console.log("toggleDescriptionToId中调用getRoleData...");
     var roleObjArr = getRoleData();
     for (var i in roleObjArr) {
         roleId.push(roleObjArr[i]['roleId']);

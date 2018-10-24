@@ -607,7 +607,7 @@ function getModalModifyData($inputForm) {
 function getRoleData(){
     var roleResult;
     $.ajax({
-        url:path + "staff/roles",
+        url:path + "/staff/roles",
         type: "GET",
         async: false,
         contentType: "application/json;charset=UTF-8",

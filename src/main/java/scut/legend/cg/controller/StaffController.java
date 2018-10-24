@@ -143,9 +143,11 @@ public class StaffController {
 	@RequestMapping(value="/staff/roles",method=RequestMethod.GET)
 	@ResponseBody
 	public CommonDTO getRoles(){
+        System.out.println("进入StaffController中的getRoles函数");
 		CommonDTO result=null;
 		try{
 			result=staffService.getRoles();
+			System.out.println("StaffController中的getRoles函数: "+result.getMsg());
 		}catch(Exception e){
 			e.printStackTrace();
 			result=new CommonDTO(Result.SYSTEM_EXCEPTION);

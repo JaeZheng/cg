@@ -3137,6 +3137,7 @@ function getSelectedCondition(divId) {
 function toggleDescriptionToId(roleSelected) {
     var roleId = [],
         roleDescription = [];
+    console.log("warehouse.js中调用getRoleData...");
     var roleObjArr = getRoleData();
     for (var i in roleObjArr) {
         roleId.push(roleObjArr[i]['roleId']);

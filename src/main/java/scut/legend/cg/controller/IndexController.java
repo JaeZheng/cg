@@ -15,14 +15,10 @@ import scut.legend.cg.vo.Result;
 public class IndexController {
 	@RequestMapping(value="/staff/home",method=RequestMethod.GET)
 	public String getHome(){
-		System.out.println("进入/staff/home");
 		Staff staff=(Staff) SecurityUtils.getSubject().getSession().getAttribute("staff");
-		System.out.println("拿到staff");
-		System.out.println("拿到的staff的工号：" + staff.getStaffNum());
 		String staffRole=staff.getRole().getRoleDescription();
 		switch (staffRole) {
 		case "总经理":
-		    System.out.println("已经是总经理");
 			return "GM";
 		case "经理":
 			return "manager";
@@ -38,6 +34,7 @@ public class IndexController {
 	@RequestMapping(value="/staff/unauthorized",method=RequestMethod.GET)
 	@ResponseBody
 	public CommonDTO unauthorized(){
+		System.out.println("进入CommonDTO的未授权函数...");
 		CommonDTO result=new CommonDTO(Result.UNAUTHORIZED);
 		return result;
 	}

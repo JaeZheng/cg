@@ -3267,6 +3267,7 @@ function getSelectedCondition(divId) {
 function toggleDescriptionToId(roleSelected) {
     var roleId = [],
         roleDescription = [];
+    console.log("factory.js中调用getRoleData...");
     var roleObjArr = getRoleData();
     for (var i in roleObjArr) {
         roleId.push(roleObjArr[i]['roleId']);
