@@ -164,9 +164,9 @@
 	        /FactoryProductInventory/getFactoryProductInventory=authc,perms["factoryProductInventory:read"]
 	        /FactoryStatistics/getFactoryStatistics=authc,perms["factoryStatistics:read"]
 	        /getAllProduct=authc
-	        /ProductModelInfo/getProductModelInfo=authc,perms["productMedelInfo:read"]
-	        /ProductModelInfo/createProductModelInfo=authc,perms["productMedelInfo:create"]
-	        /ProductModelInfo/updateProductModelInfo/**=authc,perms["productMedelInfo:read"]
+	        /ProductModelInfo/getProductModelInfo=authc,perms["productModelInfo:read"]
+	        /ProductModelInfo/createProductModelInfo=authc,perms["productModelInfo:create"]
+	        /ProductModelInfo/updateProductModelInfo/**=authc,perms["productModelInfo:read"]
 	        /ProductModelInfo/productModels=authc
 	        /ProductProduce/getProductProduce=authc,perms["productProduce:read"]
 	        /ProductProduce/createProductProduce=authc,perms["productProduce:create"]
