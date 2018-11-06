@@ -1,11 +1,10 @@
 var path1 = "http://localhost:8080/cg/"; //本地环境
 var path2 = "http://193.112.26.124/cg/"; //家伟腾讯云
 
-var path = path2;
+var path = path1;
 
 
 $(document).ready(function () {
-
     // 获取登录用户的名字
     $.getJSON(path + 'staff/userInfo', function (json) {
         $('#nav-staff-name').html('<span class="glyphicon glyphicon-user"></span> ' + json.result);
@@ -28,7 +27,13 @@ $(document).ready(function () {
     $('ul#nav-tabs a').click(function () {
         var $idValue = $(this).attr("href");
         var $divData = $("" + $idValue + " .table-data");
-
+        console.log($idValue);
+        if($idValue == "#staff-management"){
+        	var parentDivId = $("#search-staff").parent().attr("id");
+            var queryObj = getSelectedCondition(parentDivId);
+            initAjaxUseGetStaff(path + "staffs/searchResult", "json", "application/json;charset=utf-8", ".staff-record-table", "selectPage", queryObj);
+        }
+        
         for (let i = 0; i < $divData.length; i++) {
             var $dataUrl = $divData.eq(i).attr("data-url");
             var $dataDiv = $divData.eq(i).attr("data-div");
@@ -2467,7 +2472,7 @@ function initModal() {
         var produceMaxValue = Number($("#consume-sum").val())+Number($("#waste-sum").val())+Number($("#leftover-sum").val());
         var produceMinValue = Number($("#waste-sum").val())+Number($("#leftover-sum").val());
         var produceValue = $(this).val();
-        if(produceValue<produceMinValue ||　produceValue>produceMaxValue){
+        if((produceValue<produceMinValue)||(produceValue>produceMaxValue)){
             $(this).val("");
             showStatusModal(".","胚料产出输入量不合理。应大于废料和边角料总和并且小于原料消耗总量、废料以及边角料三者之和");
             return false;
@@ -2501,8 +2506,6 @@ function initModal() {
     $("#btn-add-staff").click(function () {
         $(".required").trigger('blur');
         var numError = $(".on-error").length;
-        console.log("错误数" + numError);
-        console.log($(".on-error"));
         if (numError) {
             return false;
         }
@@ -2516,7 +2519,6 @@ function initModal() {
     });
 
     //获取职位信息
-    console.log("initModal中调用getRoleData...");
     var roleResult = getRoleData();
     setRole(roleResult,$("select[id*=role]"));
 
@@ -2533,14 +2535,16 @@ function initModal() {
         $(".staff-data-modify").trigger('blur');
         var numError = $(".on-error-modify").length;
         if (numError) {
+        	alert('请正确填写必要的信息！');
             return false;
-        }
-        var $modalId = $(this).parents(".modal").attr("id"); //父模态框的id值
+        } 
+        var $modalId = $(this).parents(".modal").attr("id"); //父模态框的id值 
         var $inputModify = $(this).parent().siblings("div").find(":input"); //父模态框上的所有input和select元素
         var $modalBody = $(this).parent().parent(); //模态框的主体
         var $inputNum = $modalBody.find("input.input-num"); //要发送到服务器的字段值所在的元素
         var modifyUrl = $modalBody.attr("data-url") + $inputNum.val(); //修改数据的服务器路径
-        var sendData = convertToJson(getModalModifyData($inputModify)); //转换成JSON格式的data
+        var obj = getModalModifyData($inputModify);
+        var sendData = convertToJson(obj); //转换成JSON格式的data
         var finalData = JSON.stringify(sendData);
         addStaffModifyAjax(modifyUrl, finalData, $modalId);
     });
@@ -3080,15 +3084,15 @@ function CreateTableStaff(divName, targetId, _url, queryObj) {
 
     for (let i = 0; i < length; i++) {
         $tbody.append('<tr id="record-table-row-' + (i + 1) + '"></tr>');
+        targetObject = {};
         targetObject = iterationObject(map.result[i], targetObject);
-
+        
         if (thHiden.length > 0) {
             var $arr_index = [];
             for (let k = 0; k < thHiden.length; k++) {
                 $arr_index.push(tableName.indexOf(thHiden[k]));
             }
         }
-
         for (let j = 0; j < tableName.length; j++) {
             let reg = /.{0,}Date.{0,}/;
             if (reg.test(tableName[j])) {
@@ -3105,7 +3109,12 @@ function CreateTableStaff(divName, targetId, _url, queryObj) {
             }
 
             if ($arr_index.indexOf(j) !== -1) {
-                $tbody.children("tr:last-child").append('<td class="data-hide">' + targetObject[tableName[j]] + '</td>');
+            	if(targetObject[tableName[j]] == undefined){
+                    $tbody.children("tr:last-child").append('<td class="data-hide">未填</td>');
+            	}
+            	else{
+                    $tbody.children("tr:last-child").append('<td class="data-hide">' + targetObject[tableName[j]] + '</td>');
+            	}
             } else {
                 $tbody.children("tr:last-child").append('<td>' + targetObject[tableName[j]] + '</td>');
             }
@@ -3136,7 +3145,6 @@ function CreateTableStaff(divName, targetId, _url, queryObj) {
         var $tdModify = $(this).parent().find("td");
         var tableModalID = $(this).parent().parent().parent().attr("data-modal-id"); //所在的table对应的修改信息的模态框的id值
         var preData = getModifyItemData($thModify, $tdModify); // 获取要写入模态的数据
-        console.log(preData);
         writeDataToStaffModal(tableModalID, preData);
     });
 }
@@ -3343,7 +3351,7 @@ function addStaffModifyAjax(pathUrl, sendData, modalId) {
         dataType: "json",
         success: function (data) {
             if (data.code != 0) {
-                console.log(data.msg);
+                console.log(data.msg+ 'a');
                 $("#modal-fail").modal("show");
             } else {
                 console.log("成功了！！！");
