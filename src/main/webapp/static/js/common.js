@@ -92,6 +92,41 @@ $(document).ready(function () {
     $("#btn-order-create").click(function () {
         $("#modal-order-create").modal("show").on("shown.bs.modal", function () {
         });
+        
+        var sellUnitPrice, sellQuantity, sellTotalPrice;
+        var delivererNames = new Array();
+        var delivererIDs = new Array();
+        var delivererOptionHtml = '';
+        
+        console.log('getWM');
+        //从数据库获取所有仓库管理员
+        $.ajax({
+            url: path + "staffs/role/仓库管理员",
+            type: "GET",
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (data) {
+                if (data.code !== 0) {
+                    alert(data.msg);
+                } else {
+                    $.each(data.result, function (index, content) {
+                        delivererNames.push(content['staffName']);
+                        delivererIDs.push(content['staffId']);
+
+                        delivererOptionHtml += '<option value="' + content['staffName'] + '">' +
+                            content['staffName'] + '</option>';
+                    });
+                    delivererOptionHtml += '<option value="" class="blank-option" selected></option>';
+                }
+                $("#add-order-deliverer-name").html(delivererOptionHtml);
+            }
+        });
+
+        //根据选中员工名称自动生成员工ID
+        $("#add-order-deliverer-name").change(function () {
+            var selectedIndex = $(this).prop("selectedIndex");
+            $("#add-order-deliverer-id").val(delivererIDs[selectedIndex]);
+        });
     });
 
     // 初始化加载订单记录
@@ -2152,39 +2187,40 @@ function initAdd() {
      ----------------------------------------------------------------------------------------*/
     $(function () {
 
-        var sellUnitPrice, sellQuantity, sellTotalPrice;
-        var delivererNames = new Array();
-        var delivererIDs = new Array();
-        var delivererOptionHtml = '';
-
-        //从数据库获取所有仓库管理员
-        $.ajax({
-            url: path + "staffs/role/仓库管理员",
-            type: "GET",
-            contentType: "application/json; charset=utf-8",
-            dataType: "json",
-            success: function (data) {
-                if (data.code !== 0) {
-                    alert(data.msg);
-                } else {
-                    $.each(data.result, function (index, content) {
-                        delivererNames.push(content['staffName']);
-                        delivererIDs.push(content['staffId']);
-
-                        delivererOptionHtml += '<option value="' + content['staffName'] + '">' +
-                            content['staffName'] + '</option>';
-                    });
-                    delivererOptionHtml += '<option value="" class="blank-option" selected></option>';
-                }
-                $("#add-order-deliverer-name").html(delivererOptionHtml);
-            }
-        });
-
-        //根据选中员工名称自动生成员工ID
-        $("#add-order-deliverer-name").change(function () {
-            var selectedIndex = $(this).prop("selectedIndex");
-            $("#add-order-deliverer-id").val(delivererIDs[selectedIndex]);
-        });
+//        var sellUnitPrice, sellQuantity, sellTotalPrice;
+//        var delivererNames = new Array();
+//        var delivererIDs = new Array();
+//        var delivererOptionHtml = '';
+//        
+//        console.log('getWM');
+//        //从数据库获取所有仓库管理员
+//        $.ajax({
+//            url: path + "staffs/role/仓库管理员",
+//            type: "GET",
+//            contentType: "application/json; charset=utf-8",
+//            dataType: "json",
+//            success: function (data) {
+//                if (data.code !== 0) {
+//                    alert(data.msg);
+//                } else {
+//                    $.each(data.result, function (index, content) {
+//                        delivererNames.push(content['staffName']);
+//                        delivererIDs.push(content['staffId']);
+//
+//                        delivererOptionHtml += '<option value="' + content['staffName'] + '">' +
+//                            content['staffName'] + '</option>';
+//                    });
+//                    delivererOptionHtml += '<option value="" class="blank-option" selected></option>';
+//                }
+//                $("#add-order-deliverer-name").html(delivererOptionHtml);
+//            }
+//        });
+//
+//        //根据选中员工名称自动生成员工ID
+//        $("#add-order-deliverer-name").change(function () {
+//            var selectedIndex = $(this).prop("selectedIndex");
+//            $("#add-order-deliverer-id").val(delivererIDs[selectedIndex]);
+//        });
 
 
         //禁止直接输入总价
