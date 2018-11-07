@@ -169,6 +169,79 @@
                                             <h4 class="modal-title" id="myModalLabel">详细信息</h4>
                                         </div>
                                         <div class="modal-body order-detail">
+                                        	<div>
+                                                <label for="order-id-detail">订单ID:</label>
+                                                <input type="text" id="order-id-detail" readonly>
+                                            </div>
+                                            <div>
+                                                <label for="order-num-detail">订单编号：</label>
+                                                <input type="text" id="order-num-detail" readonly>
+                                            </div>
+                                            <div>
+                                                <label for="order-date-detail">订单日期：</label>
+                                                <input type="text" id="order-date-detail" readonly>
+                                            </div>
+                                            <div>
+                                                <label for="order-product-model-detail">产品型号：</label>
+                                                <input type="text" id="order-product-model-detail" readonly>
+                                            </div>
+                                            <div>
+                                                <label for="order-product-size-detail">产品规格(厚*长*宽)：</label>
+                                                <input id="order-product-size-detail" readonly>
+                                            </div>
+                                            <div>
+                                                <label for="order-product-shape-detail">产品形态：</label>
+                                                <input id="order-product-shape-detail" readonly>
+                                            </div>
+                                            <div>
+                                                <label for="order-deliveryQuantityTotal-detail">总量(kg)：</label>
+                                                <input type="text" id="order-deliveryQuantityTotal-detail" readonly>
+                                            </div>
+                                            <div>
+                                                <label for="order-deliveryQuantityNeed-detail">需配送(kg)：</label>
+                                                <input type="text" id="order-deliveryQuantityNeed-detail" readonly>
+                                            </div>
+                                            <div>
+                                                <label for="order-unitPrice-detail">单价(元/kg)：</label>
+                                                <input type="text" id="order-unitPrice-detail" readonly>
+                                            </div>
+                                            <div>
+                                                <label for="order-totalPrice-detail">总价(元/kg)：</label>
+                                                <input type="text" id="order-totalPrice-detail" readonly>
+                                            </div>
+                                            <div>
+                                                <label for="order-customerName-detail">收货人：</label>
+                                                <input type="text" id="order-customerName-detail" readonly>
+                                            </div>
+                                            <div>
+                                                <label for="order-customerPhone-detail">联系电话：</label>
+                                                <input type="text" id="order-customerPhone-detail" readonly>
+                                            </div>
+                                            <div>
+                                                <label for="order-customerAddress-detail">配送地址：</label>
+                                                <input type="text" id="order-customerAddress-detail" readonly>
+                                            </div>
+                                            <div>
+                                                <label for="order-orderStatus-detail">仓库管理员ID:</label>
+                                                <input type="text" id="order-orderStatus-detail" readonly>
+                                            </div>
+                                            <div>
+                                                <label for="order-deliverer-id-detail">仓库管理员:</label>
+                                                <input type="text" id="order-deliverer-id-detail" readonly>
+                                            </div>
+                                            <div>
+                                                <label for="order-deliverer-name-detail">订单状态：</label>
+                                                <input type="text" id="order-deliverer-name-modify" readonly>
+                                            </div>
+                                            <div>
+                                                <label for="order-deliveryDate-detail-arrival-date">送达日期：</label>
+                                                <input type="text" id="order-deliveryDate-detail-arrival-date"
+                                                       readonly>
+                                            </div>
+                                            <div>
+                                                <label for="order-registrant-detail">登记人：</label>
+                                                <input type="text" id="order-registrant-detail" readonly>
+                                            </div>
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-default" data-dismiss="modal">关闭

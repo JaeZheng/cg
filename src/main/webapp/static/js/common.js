@@ -27,7 +27,6 @@ $(document).ready(function () {
     $('ul#nav-tabs a').click(function () {
         var $idValue = $(this).attr("href");
         var $divData = $("" + $idValue + " .table-data");
-        console.log($idValue);
         if($idValue == "#staff-management"){
         	var parentDivId = $("#search-staff").parent().attr("id");
             var queryObj = getSelectedCondition(parentDivId);
@@ -1292,6 +1291,7 @@ function orderCreateTable(divName, targetId, _url, _startTime, _endTime, _orderN
 
     //广源修改 订单详细信息按钮
     $(".table-content-detail").on('click', function () {
+    	console.log('order-detail'); 
         var id = parseInt($(this).attr("id").match(/\d+/g)) - 1;
         var content = [];
         var target = {};
