@@ -40,8 +40,8 @@
             </div>
             <div class="fr">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a id="notification" href="#"><span class="glyphicon glyphicon-envelope"></span> 通知</a></li>
-                    <li><a id="staff-name" href="#"><span class="glyphicon glyphicon-user"></span> staff-name</a></li>
+                    <!-- <li><a id="notification" href="#"><span class="glyphicon glyphicon-envelope"></span> 通知</a></li>
+                    <li><a id="staff-name" href="#"><span class="glyphicon glyphicon-user"></span> staff-name</a></li> -->
                     <li><a id="logout" href="/cg/staff/logout"><span class="glyphicon glyphicon-log-out"></span> 退出</a>
                     </li>
                 </ul>
