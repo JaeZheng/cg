@@ -1,6 +1,6 @@
 /*
 SQLyog Ultimate v12.09 (64 bit)
-MySQL - 5.7.12-log : Database - cg
+MySQL - 5.7.23-0ubuntu0.16.04.1 : Database - cg
 *********************************************************************
 */
 
@@ -123,11 +123,20 @@ CREATE TABLE `customer` (
   `customer_phone` char(11) NOT NULL COMMENT '联系方式',
   `customer_address` varchar(200) NOT NULL COMMENT '收货地址',
   PRIMARY KEY (`customer_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COMMENT='客户信息';
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8 COMMENT='客户信息';
 
 /*Data for the table `customer` */
 
-insert  into `customer`(`customer_id`,`customer_name`,`customer_phone`,`customer_address`) values (1,'客户1','18826077180','C10'),(2,'客户2','18826077180','C10'),(3,'客户3','18826077180','C10'),(4,'客户4','18826077180','C10'),(5,'卢永豪','13802313885','广东番禺大学城');
+insert  into `customer`(`customer_id`,`customer_name`,`customer_phone`,`customer_address`) values (1,'客户1','18826077180','C10');
+insert  into `customer`(`customer_id`,`customer_name`,`customer_phone`,`customer_address`) values (2,'客户2','18826077180','C10');
+insert  into `customer`(`customer_id`,`customer_name`,`customer_phone`,`customer_address`) values (3,'客户3','18826077180','C10');
+insert  into `customer`(`customer_id`,`customer_name`,`customer_phone`,`customer_address`) values (4,'客户4','18826077180','C10');
+insert  into `customer`(`customer_id`,`customer_name`,`customer_phone`,`customer_address`) values (5,'卢永豪','13802313885','广东番禺大学城');
+insert  into `customer`(`customer_id`,`customer_name`,`customer_phone`,`customer_address`) values (6,'吴欣','18813209090','华南理工大学');
+insert  into `customer`(`customer_id`,`customer_name`,`customer_phone`,`customer_address`) values (7,'张三','19088888888','体育西路');
+insert  into `customer`(`customer_id`,`customer_name`,`customer_phone`,`customer_address`) values (8,'李四','13900002222','体育西路');
+insert  into `customer`(`customer_id`,`customer_name`,`customer_phone`,`customer_address`) values (9,'七七','12346578900','七七');
+insert  into `customer`(`customer_id`,`customer_name`,`customer_phone`,`customer_address`) values (10,'王五','18813298483','华南理工大学');
 
 /*Table structure for table `factory_out_storage_record` */
 
@@ -161,11 +170,13 @@ CREATE TABLE `factory_product_inventory` (
   PRIMARY KEY (`id`),
   KEY `product_id` (`product_id`),
   CONSTRAINT `factory_product_inventory_ibfk_1` FOREIGN KEY (`product_id`) REFERENCES `product` (`product_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='工厂产品库存';
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COMMENT='工厂产品库存';
 
 /*Data for the table `factory_product_inventory` */
 
 insert  into `factory_product_inventory`(`id`,`product_id`,`product_inventory`) values (1,1,0.00);
+insert  into `factory_product_inventory`(`id`,`product_id`,`product_inventory`) values (2,2,0.00);
+insert  into `factory_product_inventory`(`id`,`product_id`,`product_inventory`) values (3,3,0.00);
 
 /*Table structure for table `material` */
 
@@ -180,7 +191,11 @@ CREATE TABLE `material` (
 
 /*Data for the table `material` */
 
-insert  into `material`(`material_id`,`material_class`,`material_inventory`) values (1,'银',120.00),(2,'铜',100.00),(3,'锌',100.00),(4,'镉',120.00),(5,'锡',100.00);
+insert  into `material`(`material_id`,`material_class`,`material_inventory`) values (1,'银',120.00);
+insert  into `material`(`material_id`,`material_class`,`material_inventory`) values (2,'铜',1102.35);
+insert  into `material`(`material_id`,`material_class`,`material_inventory`) values (3,'锌',101.23);
+insert  into `material`(`material_id`,`material_class`,`material_inventory`) values (4,'镉',121.56);
+insert  into `material`(`material_id`,`material_class`,`material_inventory`) values (5,'锡',100.00);
 
 /*Table structure for table `material_purchase_record` */
 
@@ -201,11 +216,67 @@ CREATE TABLE `material_purchase_record` (
   KEY `staff_id` (`staff_id`),
   CONSTRAINT `material_purchase_record_ibfk_1` FOREIGN KEY (`material_id`) REFERENCES `material` (`material_id`),
   CONSTRAINT `material_purchase_record_ibfk_2` FOREIGN KEY (`staff_id`) REFERENCES `staff` (`staff_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=53 DEFAULT CHARSET=utf8 COMMENT='原料采购记录';
+) ENGINE=InnoDB AUTO_INCREMENT=58 DEFAULT CHARSET=utf8 COMMENT='原料采购记录';
 
 /*Data for the table `material_purchase_record` */
 
-insert  into `material_purchase_record`(`id`,`material_id`,`staff_id`,`staff_name`,`purchase_num`,`purchase_date`,`purchase_quantity`,`unit_price`,`total_price`) values (1,1,3,'詹育壕','GR201707010001',1498838400000,10.00,1.00,10.00),(2,1,3,'詹育壕','GR201707010002',1498838400000,10.00,1.00,10.00),(3,1,3,'詹育壕','GR201707010003',1498838400000,10.00,1.00,10.00),(4,1,3,'詹育壕','GR201707010004',1498838400000,10.00,1.00,10.00),(5,1,3,'詹育壕','GR201707010005',1498838400000,10.00,1.00,10.00),(6,1,3,'詹育壕','GR201707010006',1498838400000,10.00,1.00,10.00),(7,1,3,'詹育壕','GR201707010007',1498838400000,10.00,1.00,10.00),(8,1,3,'詹育壕','GR201707010008',1498838400000,10.00,1.00,10.00),(9,1,3,'詹育壕','GR201707010009',1498838400000,10.00,1.00,10.00),(10,1,3,'詹育壕','GR201707010010',1498838400000,10.00,1.00,10.00),(11,2,3,'詹育壕','GR201707010011',1498838400000,10.00,1.00,10.00),(12,2,3,'詹育壕','GR201707010012',1498838400000,10.00,1.00,10.00),(13,2,3,'詹育壕','GR201707010013',1498838400000,10.00,1.00,10.00),(14,2,3,'詹育壕','GR201707010014',1498838400000,10.00,1.00,10.00),(15,2,3,'詹育壕','GR201707010015',1498838400000,10.00,1.00,10.00),(16,2,3,'詹育壕','GR201707010016',1498838400000,10.00,1.00,10.00),(17,2,3,'詹育壕','GR201707010017',1498838400000,10.00,1.00,10.00),(18,2,3,'詹育壕','GR201707010018',1498838400000,10.00,1.00,10.00),(19,2,3,'詹育壕','GR201707010019',1498838400000,10.00,1.00,10.00),(20,2,3,'詹育壕','GR201707010020',1498838400000,10.00,1.00,10.00),(21,3,3,'詹育壕','GR201707010021',1498838400000,10.00,1.00,10.00),(22,3,3,'詹育壕','GR201707010022',1498838400000,10.00,1.00,10.00),(23,3,3,'詹育壕','GR201707010023',1498838400000,10.00,1.00,10.00),(24,3,3,'詹育壕','GR201707010024',1498838400000,10.00,1.00,10.00),(25,3,3,'詹育壕','GR201707010025',1498838400000,10.00,1.00,10.00),(26,3,3,'詹育壕','GR201707010026',1498838400000,10.00,1.00,10.00),(27,3,3,'詹育壕','GR201707010027',1498838400000,10.00,1.00,10.00),(28,3,3,'詹育壕','GR201707010028',1498838400000,10.00,1.00,10.00),(29,3,3,'詹育壕','GR201707010029',1498838400000,10.00,1.00,10.00),(30,3,3,'詹育壕','GR201707010030',1498838400000,10.00,1.00,10.00),(31,4,3,'詹育壕','GR201707010031',1498838400000,10.00,1.00,10.00),(32,4,3,'詹育壕','GR201707010032',1498838400000,10.00,1.00,10.00),(33,4,3,'詹育壕','GR201707010033',1498838400000,10.00,1.00,10.00),(34,4,3,'詹育壕','GR201707010034',1498838400000,10.00,1.00,10.00),(35,4,3,'詹育壕','GR201707010035',1498838400000,10.00,1.00,10.00),(36,4,3,'詹育壕','GR201707010036',1498838400000,10.00,1.00,10.00),(37,4,3,'詹育壕','GR201707010037',1498838400000,10.00,1.00,10.00),(38,4,3,'詹育壕','GR201707010038',1498838400000,10.00,1.00,10.00),(39,4,3,'詹育壕','GR201707010039',1498838400000,10.00,1.00,10.00),(40,4,3,'詹育壕','GR201707010040',1498838400000,10.00,1.00,10.00),(41,5,3,'詹育壕','GR201707010041',1498838400000,10.00,1.00,10.00),(42,5,3,'詹育壕','GR201707010042',1498838400000,10.00,1.00,10.00),(43,5,3,'詹育壕','GR201707010043',1498838400000,10.00,1.00,10.00),(44,5,3,'詹育壕','GR201707010044',1498838400000,10.00,1.00,10.00),(45,5,3,'詹育壕','GR201707010045',1498838400000,10.00,1.00,10.00),(46,5,3,'詹育壕','GR201707010046',1498838400000,10.00,1.00,10.00),(47,5,3,'詹育壕','GR201707010047',1498838400000,10.00,1.00,10.00),(48,5,3,'詹育壕','GR201707010048',1498838400000,10.00,1.00,10.00),(49,5,3,'詹育壕','GR201707010049',1498838400000,10.00,1.00,10.00),(50,5,3,'詹育壕','GR201707010050',1498838400000,10.00,1.00,10.00),(51,1,1,'郑昌萌','GR201811010001',1541030400000,20.00,100.00,2000.00),(52,4,1,'郑昌萌','GR201811050001',1541376000000,20.00,15.00,300.00);
+insert  into `material_purchase_record`(`id`,`material_id`,`staff_id`,`staff_name`,`purchase_num`,`purchase_date`,`purchase_quantity`,`unit_price`,`total_price`) values (1,1,3,'詹育壕','GR201707010001',1498838400000,10.00,1.00,10.00);
+insert  into `material_purchase_record`(`id`,`material_id`,`staff_id`,`staff_name`,`purchase_num`,`purchase_date`,`purchase_quantity`,`unit_price`,`total_price`) values (2,1,3,'詹育壕','GR201707010002',1498838400000,10.00,1.00,10.00);
+insert  into `material_purchase_record`(`id`,`material_id`,`staff_id`,`staff_name`,`purchase_num`,`purchase_date`,`purchase_quantity`,`unit_price`,`total_price`) values (3,1,3,'詹育壕','GR201707010003',1498838400000,10.00,1.00,10.00);
+insert  into `material_purchase_record`(`id`,`material_id`,`staff_id`,`staff_name`,`purchase_num`,`purchase_date`,`purchase_quantity`,`unit_price`,`total_price`) values (4,1,3,'詹育壕','GR201707010004',1498838400000,10.00,1.00,10.00);
+insert  into `material_purchase_record`(`id`,`material_id`,`staff_id`,`staff_name`,`purchase_num`,`purchase_date`,`purchase_quantity`,`unit_price`,`total_price`) values (5,1,3,'詹育壕','GR201707010005',1498838400000,10.00,1.00,10.00);
+insert  into `material_purchase_record`(`id`,`material_id`,`staff_id`,`staff_name`,`purchase_num`,`purchase_date`,`purchase_quantity`,`unit_price`,`total_price`) values (6,1,3,'詹育壕','GR201707010006',1498838400000,10.00,1.00,10.00);
+insert  into `material_purchase_record`(`id`,`material_id`,`staff_id`,`staff_name`,`purchase_num`,`purchase_date`,`purchase_quantity`,`unit_price`,`total_price`) values (7,1,3,'詹育壕','GR201707010007',1498838400000,10.00,1.00,10.00);
+insert  into `material_purchase_record`(`id`,`material_id`,`staff_id`,`staff_name`,`purchase_num`,`purchase_date`,`purchase_quantity`,`unit_price`,`total_price`) values (8,1,3,'詹育壕','GR201707010008',1498838400000,10.00,1.00,10.00);
+insert  into `material_purchase_record`(`id`,`material_id`,`staff_id`,`staff_name`,`purchase_num`,`purchase_date`,`purchase_quantity`,`unit_price`,`total_price`) values (9,1,3,'詹育壕','GR201707010009',1498838400000,10.00,1.00,10.00);
+insert  into `material_purchase_record`(`id`,`material_id`,`staff_id`,`staff_name`,`purchase_num`,`purchase_date`,`purchase_quantity`,`unit_price`,`total_price`) values (10,1,3,'詹育壕','GR201707010010',1498838400000,10.00,1.00,10.00);
+insert  into `material_purchase_record`(`id`,`material_id`,`staff_id`,`staff_name`,`purchase_num`,`purchase_date`,`purchase_quantity`,`unit_price`,`total_price`) values (11,2,3,'詹育壕','GR201707010011',1498838400000,10.00,1.00,10.00);
+insert  into `material_purchase_record`(`id`,`material_id`,`staff_id`,`staff_name`,`purchase_num`,`purchase_date`,`purchase_quantity`,`unit_price`,`total_price`) values (12,2,3,'詹育壕','GR201707010012',1498838400000,10.00,1.00,10.00);
+insert  into `material_purchase_record`(`id`,`material_id`,`staff_id`,`staff_name`,`purchase_num`,`purchase_date`,`purchase_quantity`,`unit_price`,`total_price`) values (13,2,3,'詹育壕','GR201707010013',1498838400000,10.00,1.00,10.00);
+insert  into `material_purchase_record`(`id`,`material_id`,`staff_id`,`staff_name`,`purchase_num`,`purchase_date`,`purchase_quantity`,`unit_price`,`total_price`) values (14,2,3,'詹育壕','GR201707010014',1498838400000,10.00,1.00,10.00);
+insert  into `material_purchase_record`(`id`,`material_id`,`staff_id`,`staff_name`,`purchase_num`,`purchase_date`,`purchase_quantity`,`unit_price`,`total_price`) values (15,2,3,'詹育壕','GR201707010015',1498838400000,10.00,1.00,10.00);
+insert  into `material_purchase_record`(`id`,`material_id`,`staff_id`,`staff_name`,`purchase_num`,`purchase_date`,`purchase_quantity`,`unit_price`,`total_price`) values (16,2,3,'詹育壕','GR201707010016',1498838400000,10.00,1.00,10.00);
+insert  into `material_purchase_record`(`id`,`material_id`,`staff_id`,`staff_name`,`purchase_num`,`purchase_date`,`purchase_quantity`,`unit_price`,`total_price`) values (17,2,3,'詹育壕','GR201707010017',1498838400000,10.00,1.00,10.00);
+insert  into `material_purchase_record`(`id`,`material_id`,`staff_id`,`staff_name`,`purchase_num`,`purchase_date`,`purchase_quantity`,`unit_price`,`total_price`) values (18,2,3,'詹育壕','GR201707010018',1498838400000,10.00,1.00,10.00);
+insert  into `material_purchase_record`(`id`,`material_id`,`staff_id`,`staff_name`,`purchase_num`,`purchase_date`,`purchase_quantity`,`unit_price`,`total_price`) values (19,2,3,'詹育壕','GR201707010019',1498838400000,10.00,1.00,10.00);
+insert  into `material_purchase_record`(`id`,`material_id`,`staff_id`,`staff_name`,`purchase_num`,`purchase_date`,`purchase_quantity`,`unit_price`,`total_price`) values (20,2,3,'詹育壕','GR201707010020',1498838400000,10.00,1.00,10.00);
+insert  into `material_purchase_record`(`id`,`material_id`,`staff_id`,`staff_name`,`purchase_num`,`purchase_date`,`purchase_quantity`,`unit_price`,`total_price`) values (21,3,3,'詹育壕','GR201707010021',1498838400000,10.00,1.00,10.00);
+insert  into `material_purchase_record`(`id`,`material_id`,`staff_id`,`staff_name`,`purchase_num`,`purchase_date`,`purchase_quantity`,`unit_price`,`total_price`) values (22,3,3,'詹育壕','GR201707010022',1498838400000,10.00,1.00,10.00);
+insert  into `material_purchase_record`(`id`,`material_id`,`staff_id`,`staff_name`,`purchase_num`,`purchase_date`,`purchase_quantity`,`unit_price`,`total_price`) values (23,3,3,'詹育壕','GR201707010023',1498838400000,10.00,1.00,10.00);
+insert  into `material_purchase_record`(`id`,`material_id`,`staff_id`,`staff_name`,`purchase_num`,`purchase_date`,`purchase_quantity`,`unit_price`,`total_price`) values (24,3,3,'詹育壕','GR201707010024',1498838400000,10.00,1.00,10.00);
+insert  into `material_purchase_record`(`id`,`material_id`,`staff_id`,`staff_name`,`purchase_num`,`purchase_date`,`purchase_quantity`,`unit_price`,`total_price`) values (25,3,3,'詹育壕','GR201707010025',1498838400000,10.00,1.00,10.00);
+insert  into `material_purchase_record`(`id`,`material_id`,`staff_id`,`staff_name`,`purchase_num`,`purchase_date`,`purchase_quantity`,`unit_price`,`total_price`) values (26,3,3,'詹育壕','GR201707010026',1498838400000,10.00,1.00,10.00);
+insert  into `material_purchase_record`(`id`,`material_id`,`staff_id`,`staff_name`,`purchase_num`,`purchase_date`,`purchase_quantity`,`unit_price`,`total_price`) values (27,3,3,'詹育壕','GR201707010027',1498838400000,10.00,1.00,10.00);
+insert  into `material_purchase_record`(`id`,`material_id`,`staff_id`,`staff_name`,`purchase_num`,`purchase_date`,`purchase_quantity`,`unit_price`,`total_price`) values (28,3,3,'詹育壕','GR201707010028',1498838400000,10.00,1.00,10.00);
+insert  into `material_purchase_record`(`id`,`material_id`,`staff_id`,`staff_name`,`purchase_num`,`purchase_date`,`purchase_quantity`,`unit_price`,`total_price`) values (29,3,3,'詹育壕','GR201707010029',1498838400000,10.00,1.00,10.00);
+insert  into `material_purchase_record`(`id`,`material_id`,`staff_id`,`staff_name`,`purchase_num`,`purchase_date`,`purchase_quantity`,`unit_price`,`total_price`) values (30,3,3,'詹育壕','GR201707010030',1498838400000,10.00,1.00,10.00);
+insert  into `material_purchase_record`(`id`,`material_id`,`staff_id`,`staff_name`,`purchase_num`,`purchase_date`,`purchase_quantity`,`unit_price`,`total_price`) values (31,4,3,'詹育壕','GR201707010031',1498838400000,10.00,1.00,10.00);
+insert  into `material_purchase_record`(`id`,`material_id`,`staff_id`,`staff_name`,`purchase_num`,`purchase_date`,`purchase_quantity`,`unit_price`,`total_price`) values (32,4,3,'詹育壕','GR201707010032',1498838400000,10.00,1.00,10.00);
+insert  into `material_purchase_record`(`id`,`material_id`,`staff_id`,`staff_name`,`purchase_num`,`purchase_date`,`purchase_quantity`,`unit_price`,`total_price`) values (33,4,3,'詹育壕','GR201707010033',1498838400000,10.00,1.00,10.00);
+insert  into `material_purchase_record`(`id`,`material_id`,`staff_id`,`staff_name`,`purchase_num`,`purchase_date`,`purchase_quantity`,`unit_price`,`total_price`) values (34,4,3,'詹育壕','GR201707010034',1498838400000,10.00,1.00,10.00);
+insert  into `material_purchase_record`(`id`,`material_id`,`staff_id`,`staff_name`,`purchase_num`,`purchase_date`,`purchase_quantity`,`unit_price`,`total_price`) values (35,4,3,'詹育壕','GR201707010035',1498838400000,10.00,1.00,10.00);
+insert  into `material_purchase_record`(`id`,`material_id`,`staff_id`,`staff_name`,`purchase_num`,`purchase_date`,`purchase_quantity`,`unit_price`,`total_price`) values (36,4,3,'詹育壕','GR201707010036',1498838400000,10.00,1.00,10.00);
+insert  into `material_purchase_record`(`id`,`material_id`,`staff_id`,`staff_name`,`purchase_num`,`purchase_date`,`purchase_quantity`,`unit_price`,`total_price`) values (37,4,3,'詹育壕','GR201707010037',1498838400000,10.00,1.00,10.00);
+insert  into `material_purchase_record`(`id`,`material_id`,`staff_id`,`staff_name`,`purchase_num`,`purchase_date`,`purchase_quantity`,`unit_price`,`total_price`) values (38,4,3,'詹育壕','GR201707010038',1498838400000,10.00,1.00,10.00);
+insert  into `material_purchase_record`(`id`,`material_id`,`staff_id`,`staff_name`,`purchase_num`,`purchase_date`,`purchase_quantity`,`unit_price`,`total_price`) values (39,4,3,'詹育壕','GR201707010039',1498838400000,10.00,1.00,10.00);
+insert  into `material_purchase_record`(`id`,`material_id`,`staff_id`,`staff_name`,`purchase_num`,`purchase_date`,`purchase_quantity`,`unit_price`,`total_price`) values (40,4,3,'詹育壕','GR201707010040',1498838400000,10.00,1.00,10.00);
+insert  into `material_purchase_record`(`id`,`material_id`,`staff_id`,`staff_name`,`purchase_num`,`purchase_date`,`purchase_quantity`,`unit_price`,`total_price`) values (41,5,3,'詹育壕','GR201707010041',1498838400000,10.00,1.00,10.00);
+insert  into `material_purchase_record`(`id`,`material_id`,`staff_id`,`staff_name`,`purchase_num`,`purchase_date`,`purchase_quantity`,`unit_price`,`total_price`) values (42,5,3,'詹育壕','GR201707010042',1498838400000,10.00,1.00,10.00);
+insert  into `material_purchase_record`(`id`,`material_id`,`staff_id`,`staff_name`,`purchase_num`,`purchase_date`,`purchase_quantity`,`unit_price`,`total_price`) values (43,5,3,'詹育壕','GR201707010043',1498838400000,10.00,1.00,10.00);
+insert  into `material_purchase_record`(`id`,`material_id`,`staff_id`,`staff_name`,`purchase_num`,`purchase_date`,`purchase_quantity`,`unit_price`,`total_price`) values (44,5,3,'詹育壕','GR201707010044',1498838400000,10.00,1.00,10.00);
+insert  into `material_purchase_record`(`id`,`material_id`,`staff_id`,`staff_name`,`purchase_num`,`purchase_date`,`purchase_quantity`,`unit_price`,`total_price`) values (45,5,3,'詹育壕','GR201707010045',1498838400000,10.00,1.00,10.00);
+insert  into `material_purchase_record`(`id`,`material_id`,`staff_id`,`staff_name`,`purchase_num`,`purchase_date`,`purchase_quantity`,`unit_price`,`total_price`) values (46,5,3,'詹育壕','GR201707010046',1498838400000,10.00,1.00,10.00);
+insert  into `material_purchase_record`(`id`,`material_id`,`staff_id`,`staff_name`,`purchase_num`,`purchase_date`,`purchase_quantity`,`unit_price`,`total_price`) values (47,5,3,'詹育壕','GR201707010047',1498838400000,10.00,1.00,10.00);
+insert  into `material_purchase_record`(`id`,`material_id`,`staff_id`,`staff_name`,`purchase_num`,`purchase_date`,`purchase_quantity`,`unit_price`,`total_price`) values (48,5,3,'詹育壕','GR201707010048',1498838400000,10.00,1.00,10.00);
+insert  into `material_purchase_record`(`id`,`material_id`,`staff_id`,`staff_name`,`purchase_num`,`purchase_date`,`purchase_quantity`,`unit_price`,`total_price`) values (49,5,3,'詹育壕','GR201707010049',1498838400000,10.00,1.00,10.00);
+insert  into `material_purchase_record`(`id`,`material_id`,`staff_id`,`staff_name`,`purchase_num`,`purchase_date`,`purchase_quantity`,`unit_price`,`total_price`) values (50,5,3,'詹育壕','GR201707010050',1498838400000,10.00,1.00,10.00);
+insert  into `material_purchase_record`(`id`,`material_id`,`staff_id`,`staff_name`,`purchase_num`,`purchase_date`,`purchase_quantity`,`unit_price`,`total_price`) values (51,1,1,'郑昌萌','GR201811010001',1541030400000,20.00,101.00,2020.00);
+insert  into `material_purchase_record`(`id`,`material_id`,`staff_id`,`staff_name`,`purchase_num`,`purchase_date`,`purchase_quantity`,`unit_price`,`total_price`) values (52,4,1,'郑昌萌','GR201811050001',1541376000000,20.00,15.00,300.00);
+insert  into `material_purchase_record`(`id`,`material_id`,`staff_id`,`staff_name`,`purchase_num`,`purchase_date`,`purchase_quantity`,`unit_price`,`total_price`) values (53,2,1,'郑昌萌','GR201811020001',1541116800000,1.12,1.12,1.26);
+insert  into `material_purchase_record`(`id`,`material_id`,`staff_id`,`staff_name`,`purchase_num`,`purchase_date`,`purchase_quantity`,`unit_price`,`total_price`) values (54,2,1,'郑昌萌','GR201811070001',1541548800000,1000.00,100.00,100000.00);
+insert  into `material_purchase_record`(`id`,`material_id`,`staff_id`,`staff_name`,`purchase_num`,`purchase_date`,`purchase_quantity`,`unit_price`,`total_price`) values (55,4,1,'郑昌萌','GR201811060002',1541462400000,1.56,2.37,3.71);
+insert  into `material_purchase_record`(`id`,`material_id`,`staff_id`,`staff_name`,`purchase_num`,`purchase_date`,`purchase_quantity`,`unit_price`,`total_price`) values (56,3,1,'郑昌萌','GR201811080001',1541635200000,1.23,123.11,151.43);
+insert  into `material_purchase_record`(`id`,`material_id`,`staff_id`,`staff_name`,`purchase_num`,`purchase_date`,`purchase_quantity`,`unit_price`,`total_price`) values (57,2,1,'郑昌萌','GR201811070003',1541548800000,1.23,123.10,151.41);
 
 /*Table structure for table `permission` */
 
@@ -220,7 +291,13 @@ CREATE TABLE `permission` (
 
 /*Data for the table `permission` */
 
-insert  into `permission`(`permission_id`,`permission_name`,`permission_description`) values (1,'staff:all','员工管理权限'),(2,'warehouseOrder:read','仓库管理员读权限'),(3,'warehouseOrder','仓库管理员全部权限'),(4,'materialPurchaseRecord:read','原料采购读权限'),(5,'materialPurchaseRecord:all','原料采购所有权限'),(6,'productModelInfo:create','添加产品型号权限'),(7,'productModelInfo:read','查询产品型号权限');
+insert  into `permission`(`permission_id`,`permission_name`,`permission_description`) values (1,'staff:all','员工管理权限');
+insert  into `permission`(`permission_id`,`permission_name`,`permission_description`) values (2,'warehouseOrder:read','仓库管理员读权限');
+insert  into `permission`(`permission_id`,`permission_name`,`permission_description`) values (3,'warehouseOrder','仓库管理员全部权限');
+insert  into `permission`(`permission_id`,`permission_name`,`permission_description`) values (4,'materialPurchaseRecord:read','原料采购读权限');
+insert  into `permission`(`permission_id`,`permission_name`,`permission_description`) values (5,'materialPurchaseRecord:all','原料采购所有权限');
+insert  into `permission`(`permission_id`,`permission_name`,`permission_description`) values (6,'productModelInfo:create','添加产品型号权限');
+insert  into `permission`(`permission_id`,`permission_name`,`permission_description`) values (7,'productModelInfo:read','查询产品型号权限');
 
 /*Table structure for table `product` */
 
@@ -234,11 +311,13 @@ CREATE TABLE `product` (
   PRIMARY KEY (`product_id`),
   KEY `product_model_info_id` (`product_model_info_id`),
   CONSTRAINT `product_ibfk_1` FOREIGN KEY (`product_model_info_id`) REFERENCES `product_model_info` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='产品';
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COMMENT='产品';
 
 /*Data for the table `product` */
 
 insert  into `product`(`product_id`,`product_model_info_id`,`product_size`,`product_shape`) values (1,1,'1.0*1.0*1.0','直');
+insert  into `product`(`product_id`,`product_model_info_id`,`product_size`,`product_shape`) values (2,1,'0.1*0.1*0.1','弯');
+insert  into `product`(`product_id`,`product_model_info_id`,`product_size`,`product_shape`) values (3,1,'0.1*0.2*0.1','弯');
 
 /*Table structure for table `product_model_info` */
 
@@ -298,7 +377,10 @@ CREATE TABLE `role` (
 
 /*Data for the table `role` */
 
-insert  into `role`(`role_id`,`role_name`,`role_description`) values (1,'GM','总经理'),(2,'manager','经理'),(3,'FM','工厂管理员'),(4,'WM','仓库管理员');
+insert  into `role`(`role_id`,`role_name`,`role_description`) values (1,'GM','总经理');
+insert  into `role`(`role_id`,`role_name`,`role_description`) values (2,'manager','经理');
+insert  into `role`(`role_id`,`role_name`,`role_description`) values (3,'FM','工厂管理员');
+insert  into `role`(`role_id`,`role_name`,`role_description`) values (4,'WM','仓库管理员');
 
 /*Table structure for table `role_permission` */
 
@@ -317,7 +399,14 @@ CREATE TABLE `role_permission` (
 
 /*Data for the table `role_permission` */
 
-insert  into `role_permission`(`id`,`role_id`,`permission_id`) values (0,1,2),(1,1,1),(2,2,1),(3,1,3),(4,1,4),(5,1,5),(6,1,6),(7,1,7);
+insert  into `role_permission`(`id`,`role_id`,`permission_id`) values (0,1,2);
+insert  into `role_permission`(`id`,`role_id`,`permission_id`) values (1,1,1);
+insert  into `role_permission`(`id`,`role_id`,`permission_id`) values (2,2,1);
+insert  into `role_permission`(`id`,`role_id`,`permission_id`) values (3,1,3);
+insert  into `role_permission`(`id`,`role_id`,`permission_id`) values (4,1,4);
+insert  into `role_permission`(`id`,`role_id`,`permission_id`) values (5,1,5);
+insert  into `role_permission`(`id`,`role_id`,`permission_id`) values (6,1,6);
+insert  into `role_permission`(`id`,`role_id`,`permission_id`) values (7,1,7);
 
 /*Table structure for table `staff` */
 
@@ -341,11 +430,39 @@ CREATE TABLE `staff` (
   PRIMARY KEY (`staff_id`),
   KEY `role_id` (`role_id`),
   CONSTRAINT `staff_ibfk_1` FOREIGN KEY (`role_id`) REFERENCES `role` (`role_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8 COMMENT='员工表';
+) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8 COMMENT='员工表';
 
 /*Data for the table `staff` */
 
-insert  into `staff`(`staff_id`,`staff_num`,`staff_name`,`role_id`,`staff_state`,`staff_sex`,`staff_native`,`staff_nation`,`staff_marriage`,`staff_address`,`staff_entry_date`,`staff_id_num`,`staff_tel`,`staff_password`) values (1,'2017070001','郑昌萌',1,'在职','男','福建泉州','汉族','未婚','广东番禺达隆湾',1498838400000,'123456789987654321','18826070000','123456'),(2,'2017070002','卢永豪',2,'在职','男',NULL,NULL,NULL,NULL,1498838400000,'123456789987654321','18826070000','123456'),(3,'2017070003','吴昕',2,'在职','男',NULL,NULL,NULL,NULL,1498838400000,'123456789987654321','18826070000','123456'),(4,'2017070004','何文栋',3,'在职','男',NULL,NULL,NULL,NULL,1498838400000,'123456789987654321','18826070000','123456'),(5,'2017070005','李纯如',3,'在职','男',NULL,NULL,NULL,NULL,1498838400000,'123456789987654321','18826070000','123456'),(6,'2017070006','詹茁',4,'在职','男',NULL,NULL,NULL,NULL,1498838400000,'123456789987654321','18826070000','123456'),(7,'2017070007','刘广源',4,'在职','男','广东广州','汉族','未婚','华南理工大学c14-312',1498838400000,'123456789987654321','18826078888','123456'),(8,'2017070008','工厂管理员1',3,'在职','男',NULL,NULL,NULL,NULL,1498838400000,'123456789987654321','18826070000','123456'),(9,'2017070009','工厂管理员2',3,'在职','男',NULL,NULL,NULL,NULL,1498838400000,'123456789987654321','18826070000','123456'),(10,'2017070010','工厂管理员3',3,'在职','男',NULL,NULL,NULL,NULL,1498838400000,'123456789987654321','18826070000','123456'),(11,'2017070011','工厂管理员4',3,'在职','男',NULL,NULL,NULL,NULL,1498838400000,'123456789987654321','18826070000','123456'),(12,'2017070012','工厂管理员5',3,'在职','男',NULL,NULL,NULL,NULL,1498838400000,'123456789987654321','18826070000','123456'),(13,'2017070013','工厂管理员6',3,'在职','男',NULL,NULL,NULL,NULL,1498838400000,'123456789987654321','18826070000','123456'),(14,'2017070014','仓库管理员1',4,'在职','男',NULL,NULL,NULL,NULL,1498838400000,'123456789987654321','18826070000','123456'),(15,'2017070015','仓库管理员2',4,'在职','男',NULL,NULL,NULL,NULL,1498838400000,'123456789987654321','18826070000','123456'),(16,'2017070016','仓库管理员3',4,'在职','男',NULL,NULL,NULL,NULL,1498838400000,'123456789987654321','18826070000','123456'),(17,'2017070017','仓库管理员4',4,'在职','男',NULL,NULL,NULL,NULL,1498838400000,'123456789987654321','18826070000','123456'),(18,'2017070018','仓库管理员5',4,'在职','男',NULL,NULL,NULL,NULL,1498838400000,'123456789987654321','18826070000','123456'),(19,'2017070019','仓库管理员7',4,'在职','男',NULL,NULL,NULL,NULL,1498838400000,'123456789987654321','18826070000','123456'),(20,'2017070020','杜育明',2,'在职','男',NULL,NULL,NULL,NULL,1498838400000,'123456789987654321','18826070000','123456'),(21,'2017070021','曹奕飞',2,'在职','男',NULL,NULL,NULL,NULL,1498838400000,'123456789987654321','18826070000','123456'),(22,'2018090001','郑家伟',2,'在职','男','广东广州','汉族','未婚','华南理工大学c14-312',1536192000000,'445202199901013051','18826077396','013051');
+insert  into `staff`(`staff_id`,`staff_num`,`staff_name`,`role_id`,`staff_state`,`staff_sex`,`staff_native`,`staff_nation`,`staff_marriage`,`staff_address`,`staff_entry_date`,`staff_id_num`,`staff_tel`,`staff_password`) values (1,'2017070001','郑昌萌',1,'在职','男','福建泉州','汉族','未婚','广东番禺达隆湾',1498838400000,'123456789987654321','18826070001','123456');
+insert  into `staff`(`staff_id`,`staff_num`,`staff_name`,`role_id`,`staff_state`,`staff_sex`,`staff_native`,`staff_nation`,`staff_marriage`,`staff_address`,`staff_entry_date`,`staff_id_num`,`staff_tel`,`staff_password`) values (2,'2017070002','卢永豪',2,'在职','男','未填','未填',NULL,'未填',1498838400000,'123456789987654321','18826070001','123456');
+insert  into `staff`(`staff_id`,`staff_num`,`staff_name`,`role_id`,`staff_state`,`staff_sex`,`staff_native`,`staff_nation`,`staff_marriage`,`staff_address`,`staff_entry_date`,`staff_id_num`,`staff_tel`,`staff_password`) values (3,'2017070003','吴昕',2,'在职','男','未填','未填',NULL,'C10-312',1498838400000,'123456789987654321','18826070000','123456');
+insert  into `staff`(`staff_id`,`staff_num`,`staff_name`,`role_id`,`staff_state`,`staff_sex`,`staff_native`,`staff_nation`,`staff_marriage`,`staff_address`,`staff_entry_date`,`staff_id_num`,`staff_tel`,`staff_password`) values (4,'2017070004','何文栋',3,'在职','男',NULL,NULL,NULL,NULL,1498838400000,'123456789987654321','18826070000','123456');
+insert  into `staff`(`staff_id`,`staff_num`,`staff_name`,`role_id`,`staff_state`,`staff_sex`,`staff_native`,`staff_nation`,`staff_marriage`,`staff_address`,`staff_entry_date`,`staff_id_num`,`staff_tel`,`staff_password`) values (5,'2017070005','李纯如',3,'在职','男','未填','未填',NULL,'未填',1498838400000,'123456789987654321','18826071111','123456');
+insert  into `staff`(`staff_id`,`staff_num`,`staff_name`,`role_id`,`staff_state`,`staff_sex`,`staff_native`,`staff_nation`,`staff_marriage`,`staff_address`,`staff_entry_date`,`staff_id_num`,`staff_tel`,`staff_password`) values (6,'2017070006','詹茁',4,'在职','男',NULL,NULL,NULL,NULL,1498838400000,'123456789987654321','18826070000','123456');
+insert  into `staff`(`staff_id`,`staff_num`,`staff_name`,`role_id`,`staff_state`,`staff_sex`,`staff_native`,`staff_nation`,`staff_marriage`,`staff_address`,`staff_entry_date`,`staff_id_num`,`staff_tel`,`staff_password`) values (7,'2017070007','刘广源',4,'在职','男','广东广州','汉族','未婚','华南理工大学c14-312',1498838400000,'123456789987654321','18826078888','123456');
+insert  into `staff`(`staff_id`,`staff_num`,`staff_name`,`role_id`,`staff_state`,`staff_sex`,`staff_native`,`staff_nation`,`staff_marriage`,`staff_address`,`staff_entry_date`,`staff_id_num`,`staff_tel`,`staff_password`) values (8,'2017070008','工厂管理员1',3,'在职','男','未填','未填',NULL,'C12',1498838400000,'123456789987654321','18826070000','123456');
+insert  into `staff`(`staff_id`,`staff_num`,`staff_name`,`role_id`,`staff_state`,`staff_sex`,`staff_native`,`staff_nation`,`staff_marriage`,`staff_address`,`staff_entry_date`,`staff_id_num`,`staff_tel`,`staff_password`) values (9,'2017070009','工厂管理员2',3,'在职','男',NULL,NULL,NULL,NULL,1498838400000,'123456789987654321','18826070000','123456');
+insert  into `staff`(`staff_id`,`staff_num`,`staff_name`,`role_id`,`staff_state`,`staff_sex`,`staff_native`,`staff_nation`,`staff_marriage`,`staff_address`,`staff_entry_date`,`staff_id_num`,`staff_tel`,`staff_password`) values (10,'2017070010','工厂管理员3',3,'在职','男',NULL,NULL,NULL,NULL,1498838400000,'123456789987654321','18826070000','123456');
+insert  into `staff`(`staff_id`,`staff_num`,`staff_name`,`role_id`,`staff_state`,`staff_sex`,`staff_native`,`staff_nation`,`staff_marriage`,`staff_address`,`staff_entry_date`,`staff_id_num`,`staff_tel`,`staff_password`) values (11,'2017070011','工厂管理员4',3,'在职','男',NULL,NULL,NULL,NULL,1498838400000,'123456789987654321','18826070000','123456');
+insert  into `staff`(`staff_id`,`staff_num`,`staff_name`,`role_id`,`staff_state`,`staff_sex`,`staff_native`,`staff_nation`,`staff_marriage`,`staff_address`,`staff_entry_date`,`staff_id_num`,`staff_tel`,`staff_password`) values (12,'2017070012','工厂管理员5',3,'在职','男',NULL,NULL,NULL,NULL,1498838400000,'123456789987654321','18826070000','123456');
+insert  into `staff`(`staff_id`,`staff_num`,`staff_name`,`role_id`,`staff_state`,`staff_sex`,`staff_native`,`staff_nation`,`staff_marriage`,`staff_address`,`staff_entry_date`,`staff_id_num`,`staff_tel`,`staff_password`) values (13,'2017070013','工厂管理员6',3,'在职','男',NULL,NULL,NULL,NULL,1498838400000,'123456789987654321','18826070000','123456');
+insert  into `staff`(`staff_id`,`staff_num`,`staff_name`,`role_id`,`staff_state`,`staff_sex`,`staff_native`,`staff_nation`,`staff_marriage`,`staff_address`,`staff_entry_date`,`staff_id_num`,`staff_tel`,`staff_password`) values (14,'2017070014','仓库管理员1',4,'在职','男',NULL,NULL,NULL,NULL,1498838400000,'123456789987654321','18826070000','123456');
+insert  into `staff`(`staff_id`,`staff_num`,`staff_name`,`role_id`,`staff_state`,`staff_sex`,`staff_native`,`staff_nation`,`staff_marriage`,`staff_address`,`staff_entry_date`,`staff_id_num`,`staff_tel`,`staff_password`) values (15,'2017070015','仓库管理员2',4,'在职','男',NULL,NULL,NULL,NULL,1498838400000,'123456789987654321','18826070000','123456');
+insert  into `staff`(`staff_id`,`staff_num`,`staff_name`,`role_id`,`staff_state`,`staff_sex`,`staff_native`,`staff_nation`,`staff_marriage`,`staff_address`,`staff_entry_date`,`staff_id_num`,`staff_tel`,`staff_password`) values (16,'2017070016','仓库管理员3',4,'在职','男',NULL,NULL,NULL,NULL,1498838400000,'123456789987654321','18826070000','123456');
+insert  into `staff`(`staff_id`,`staff_num`,`staff_name`,`role_id`,`staff_state`,`staff_sex`,`staff_native`,`staff_nation`,`staff_marriage`,`staff_address`,`staff_entry_date`,`staff_id_num`,`staff_tel`,`staff_password`) values (17,'2017070017','仓库管理员4',4,'在职','男','未填','未填',NULL,'未填',1498838400000,'123456789987654321','18826070000','123456');
+insert  into `staff`(`staff_id`,`staff_num`,`staff_name`,`role_id`,`staff_state`,`staff_sex`,`staff_native`,`staff_nation`,`staff_marriage`,`staff_address`,`staff_entry_date`,`staff_id_num`,`staff_tel`,`staff_password`) values (18,'2017070018','仓库管理员5',4,'在职','男',NULL,NULL,NULL,NULL,1498838400000,'123456789987654321','18826070000','123456');
+insert  into `staff`(`staff_id`,`staff_num`,`staff_name`,`role_id`,`staff_state`,`staff_sex`,`staff_native`,`staff_nation`,`staff_marriage`,`staff_address`,`staff_entry_date`,`staff_id_num`,`staff_tel`,`staff_password`) values (19,'2017070019','仓库管理员7',4,'在职','男',NULL,NULL,NULL,NULL,1498838400000,'123456789987654321','18826070000','123456');
+insert  into `staff`(`staff_id`,`staff_num`,`staff_name`,`role_id`,`staff_state`,`staff_sex`,`staff_native`,`staff_nation`,`staff_marriage`,`staff_address`,`staff_entry_date`,`staff_id_num`,`staff_tel`,`staff_password`) values (20,'2017070020','杜育明',2,'在职','男',NULL,NULL,NULL,NULL,1498838400000,'123456789987654321','18826070000','123456');
+insert  into `staff`(`staff_id`,`staff_num`,`staff_name`,`role_id`,`staff_state`,`staff_sex`,`staff_native`,`staff_nation`,`staff_marriage`,`staff_address`,`staff_entry_date`,`staff_id_num`,`staff_tel`,`staff_password`) values (21,'2017070021','曹奕飞',2,'在职','男',NULL,NULL,NULL,NULL,1498838400000,'123456789987654321','18826070000','123456');
+insert  into `staff`(`staff_id`,`staff_num`,`staff_name`,`role_id`,`staff_state`,`staff_sex`,`staff_native`,`staff_nation`,`staff_marriage`,`staff_address`,`staff_entry_date`,`staff_id_num`,`staff_tel`,`staff_password`) values (22,'2018090001','郑家伟',2,'在职','男','广东广州','汉族','未婚','华南理工大学c14-312',1536192000000,'445202199901013051','18826077396','013051');
+insert  into `staff`(`staff_id`,`staff_num`,`staff_name`,`role_id`,`staff_state`,`staff_sex`,`staff_native`,`staff_nation`,`staff_marriage`,`staff_address`,`staff_entry_date`,`staff_id_num`,`staff_tel`,`staff_password`) values (23,'2018110001','Nick',3,'在职','男','','','未婚','',1541548800000,'440044004400440011','12345678900','440011');
+insert  into `staff`(`staff_id`,`staff_num`,`staff_name`,`role_id`,`staff_state`,`staff_sex`,`staff_native`,`staff_nation`,`staff_marriage`,`staff_address`,`staff_entry_date`,`staff_id_num`,`staff_tel`,`staff_password`) values (24,'2018110002','nicka',4,'离职','女','广州','汉族','已婚','广州',1541030400000,'123465489651321654','12345678900','321654');
+insert  into `staff`(`staff_id`,`staff_num`,`staff_name`,`role_id`,`staff_state`,`staff_sex`,`staff_native`,`staff_nation`,`staff_marriage`,`staff_address`,`staff_entry_date`,`staff_id_num`,`staff_tel`,`staff_password`) values (25,'2018110003','六六',3,'离职','女','','','离异','',1541462400000,'123456789000001232','12345678900','001232');
+insert  into `staff`(`staff_id`,`staff_num`,`staff_name`,`role_id`,`staff_state`,`staff_sex`,`staff_native`,`staff_nation`,`staff_marriage`,`staff_address`,`staff_entry_date`,`staff_id_num`,`staff_tel`,`staff_password`) values (26,'2018110004','七七',4,'离职','男','奥术大师1','代我去二','已婚','撒旦 ',1541462400000,'123465132465113214','12468945154','113214');
+insert  into `staff`(`staff_id`,`staff_num`,`staff_name`,`role_id`,`staff_state`,`staff_sex`,`staff_native`,`staff_nation`,`staff_marriage`,`staff_address`,`staff_entry_date`,`staff_id_num`,`staff_tel`,`staff_password`) values (27,'2018110005','卢永豪啊',3,'在职','男','广州市','汉族','已婚','天河区',1541548800000,'361818987654327687','18813298484','327687');
+insert  into `staff`(`staff_id`,`staff_num`,`staff_name`,`role_id`,`staff_state`,`staff_sex`,`staff_native`,`staff_nation`,`staff_marriage`,`staff_address`,`staff_entry_date`,`staff_id_num`,`staff_tel`,`staff_password`) values (28,'2018110006','吴欣',3,'在职','男','广州市','汉族','已婚','广州市',1541548800000,'362429199606064318','18813298487','064318');
+insert  into `staff`(`staff_id`,`staff_num`,`staff_name`,`role_id`,`staff_state`,`staff_sex`,`staff_native`,`staff_nation`,`staff_marriage`,`staff_address`,`staff_entry_date`,`staff_id_num`,`staff_tel`,`staff_password`) values (29,'2018110007','张三',2,'在职','男','广东广州','汉','未婚','C11',1541721600000,'888888888888888888','13920009999','888888');
 
 /*Table structure for table `warehouse_delivery_record` */
 
@@ -418,11 +535,16 @@ CREATE TABLE `warehouse_order` (
   CONSTRAINT `warehouse_order_ibfk_2` FOREIGN KEY (`warehouse_manager_id`) REFERENCES `staff` (`staff_id`),
   CONSTRAINT `warehouse_order_ibfk_3` FOREIGN KEY (`product_id`) REFERENCES `product` (`product_id`),
   CONSTRAINT `warehouse_order_ibfk_4` FOREIGN KEY (`customer_id`) REFERENCES `customer` (`customer_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='仓库订单';
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COMMENT='仓库订单';
 
 /*Data for the table `warehouse_order` */
 
 insert  into `warehouse_order`(`id`,`order_num`,`staff_id`,`staff_name`,`product_id`,`customer_id`,`order_date`,`delivery_quantity_total`,`delivery_quantity_need`,`unit_price`,`total_price`,`order_status`,`delivery_date`,`warehouse_manager_id`,`warehouse_manager_name`) values (1,'XS201811050001',1,'郑昌萌',1,5,1541376000000,200.00,200.00,10.00,2000.00,'未配送',1541894400000,7,'刘广源');
+insert  into `warehouse_order`(`id`,`order_num`,`staff_id`,`staff_name`,`product_id`,`customer_id`,`order_date`,`delivery_quantity_total`,`delivery_quantity_need`,`unit_price`,`total_price`,`order_status`,`delivery_date`,`warehouse_manager_id`,`warehouse_manager_name`) values (2,'XS201811060001',1,'郑昌萌',2,6,1541462400000,11.21,11.21,11.21,125.65,'未配送',1542326400000,6,'詹茁');
+insert  into `warehouse_order`(`id`,`order_num`,`staff_id`,`staff_name`,`product_id`,`customer_id`,`order_date`,`delivery_quantity_total`,`delivery_quantity_need`,`unit_price`,`total_price`,`order_status`,`delivery_date`,`warehouse_manager_id`,`warehouse_manager_name`) values (3,'XS201811070001',1,'郑昌萌',1,7,1541548800000,1099.00,1099.00,123.00,135177.00,'未配送',1543536000000,7,'刘广源');
+insert  into `warehouse_order`(`id`,`order_num`,`staff_id`,`staff_name`,`product_id`,`customer_id`,`order_date`,`delivery_quantity_total`,`delivery_quantity_need`,`unit_price`,`total_price`,`order_status`,`delivery_date`,`warehouse_manager_id`,`warehouse_manager_name`) values (4,'XS201811070002',1,'郑昌萌',1,8,1541548800000,10.00,10.00,1000.00,10000.00,'未配送',1542844800000,14,'仓库管理员1');
+insert  into `warehouse_order`(`id`,`order_num`,`staff_id`,`staff_name`,`product_id`,`customer_id`,`order_date`,`delivery_quantity_total`,`delivery_quantity_need`,`unit_price`,`total_price`,`order_status`,`delivery_date`,`warehouse_manager_id`,`warehouse_manager_name`) values (5,'XS201811010001',1,'郑昌萌',2,9,1541030400000,1.24,1.24,12.33,15.23,'未配送',1542240000000,24,'nicka');
+insert  into `warehouse_order`(`id`,`order_num`,`staff_id`,`staff_name`,`product_id`,`customer_id`,`order_date`,`delivery_quantity_total`,`delivery_quantity_need`,`unit_price`,`total_price`,`order_status`,`delivery_date`,`warehouse_manager_id`,`warehouse_manager_name`) values (6,'XS201811070003',1,'郑昌萌',3,10,1541548800000,1.12,1.12,1.23,1.38,'未配送',1541721600000,7,'刘广源');
 
 /*Table structure for table `warehouse_product_inventory` */
 
