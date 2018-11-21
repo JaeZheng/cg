@@ -60,15 +60,15 @@
                 <li class="manager-navtabs"><a id="staff-management-atag" name="staffManagement"
                                                href="#staff-management" role="tab"
                                                data-toggle="tab">员工管理</a></li>
-                <!-- <li class="manager-navtabs"><a name="customerInfo" href="#customer-info" role="tab" data-toggle="tab">客户信息</a>
+                <li class="manager-navtabs"><a name="customerInfo" href="#customer-info" role="tab" data-toggle="tab">客户信息</a>
                 </li>
                 <li class="manager-navtabs"><a name="statisticsQuery" href="#statistics-query" role="tab"
                                                data-toggle="tab">统计查询</a></li>
                 <li class="manager-navtabs"><a name="userGuide" href="#user-guide" role="tab" data-toggle="tab">使用指南</a>
-                </li> -->
+                </li>
                 <li class="factory-navtabs" style="display: none;"><a name="materialPurchase" href="#material-purchase"
                                                                       role="tab" data-toggle="tab">原料采购</a></li>
-                <!-- <li class="factory-navtabs" style="display: none;"><a name="blowOn" href="#blow-on" role="tab"
+                <li class="factory-navtabs" style="display: none;"><a name="blowOn" href="#blow-on" role="tab"
                                                                       data-toggle="tab">开炉登记</a></li>
                 <li class="factory-navtabs" style="display: none;"><a name="productModel" href="#product-model"
                                                                       role="tab" data-toggle="tab">产品型号</a></li>
@@ -82,8 +82,8 @@
                                                                       role="tab" data-toggle="tab">清仓登记</a></li>
                 <li class="factory-navtabs" style="display: none;"><a name="factoryStatistics"
                                                                       href="#factory-statistics" role="tab"
-                                                                      data-toggle="tab">工厂统计</a></li> -->
-                <!-- <li class="warehouse-navtabs" style="display: none;"><a name="inStorageRecord" href="#in-storage-record"
+                                                                      data-toggle="tab">工厂统计</a></li>
+                <li class="warehouse-navtabs" style="display: none;"><a name="inStorageRecord" href="#in-storage-record"
                                                                         role="tab" data-toggle="tab">入库登记</a></li>
                 <li class="warehouse-navtabs" style="display: none;"><a id="delivery-record-atag" name="deliveryRecord"
                                                                         href="#delivery-record"
@@ -93,7 +93,7 @@
                                                                         data-toggle="tab">仓库库存</a></li>
                 <li class="warehouse-navtabs" style="display: none;"><a name="warehouseStatistics"
                                                                         href="#warehouse-statistics" role="tab"
-                                                                        data-toggle="tab">仓库统计</a></li> -->
+                                                                        data-toggle="tab">仓库统计</a></li>
             </ul>
         </nav>
     </div>
