@@ -1,16 +1,7 @@
-var path1 = "http://110.64.72.46:8080/cg/"; //杭澍
-var path2 = "http://110.64.72.43:8080/cg/"; //耀友
-var path3 = "http://119.29.173.65:8080/cg/"; //锡龙
-var path4 = "http://110.64.91.19:8080/cg/"; //耀友宿舍
-var path5 = "http://192.168.1.155:8080/cg/"; //杭澍宿舍
-var path6 = "http://45.76.198.134:8080/cg/"; //耀友远程
-var path7 = "http://119.29.200.238:8080/cg/"; //耀友腾讯云
-var path8 = "http://localhost:8080/cg/"; //本地环境
-var path9 = "http://120.77.39.33:8080/cg/"; //耀友远程无权限
-var path10 = "http://193.112.26.124/cg/"; //家伟腾讯云
+var path1 = "http://localhost:8080/cg/"; //本地环境
+var path2 = "http://193.112.26.124/cg/"; //家伟腾讯云
 
-var path = path10;
-
+var path = path2;
 
 $(document).ready(function () {
 

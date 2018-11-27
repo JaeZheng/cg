@@ -226,11 +226,11 @@ CREATE TABLE `permission` (
   `permission_name` varchar(100) NOT NULL COMMENT '权限名',
   `permission_description` varchar(100) NOT NULL COMMENT '权限描述',
   PRIMARY KEY (`permission_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8 COMMENT='权限表';
+) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8 COMMENT='权限表';
 
 /*Data for the table `permission` */
 
-insert  into `permission`(`permission_id`,`permission_name`,`permission_description`) values (1,'staff:all','员工管理权限'),(2,'warehouseOrder:read','仓库管理员读权限'),(3,'warehouseOrder','仓库管理员全部权限'),(4,'materialPurchaseRecord:read','原料采购读权限'),(5,'materialPurchaseRecord:all','原料采购所有权限'),(6,'productModelInfo:create','添加产品型号权限'),(7,'productModelInfo:read','查询产品型号权限'),(8,'blowonRecord:read','查询开炉信息权限'),(9,'blowonRecord:create','添加开炉信息权限'),(10,'blowonRecord:update','更新开炉信息权限'),(11,'blankRecord:read','查询胚料登记权限'),(12,'blankRecord:create','添加胚料登记权限'),(13,'blankRecord:update','更新胚料登记权限'),(14,'productProduce:read','查询产品产出权限'),(15,'productProduce:create','添加产品产出权限'),(16,'productProduce:update','更新产品产出权限'),(17,'factoryOutStorageRecord:read','查询出库记录权限'),(18,'factoryOutStorageRecord:create','添加出库记录权限'),(19,'factoryOutStorageRecord:update','更新出库记录权限'),(20,'factoryProductInventory:read','查询工厂库存权限'),(21,'factoryStatistics:read','查询工厂统计权限'),(22,'checkWarehouseProductRecord:read','查询产品清仓登记权限'),(23,'checkWarehouseOthersRecord:read','查询其他清仓登记权限'),(24,'materialInventories:read','查询原料库存信息权限'),(25,'checkWarehouseProductRecord:create','添加产品清仓登记权限'),(26,'checkWarehouseProductRecord:update','更新产品清仓登记权限'),(27,'checkWarehouseOthersRecord:create','添加其他清仓登记权限'),(28,'checkWarehouseOthersRecord:updat','更新其他清仓登记权限');
+insert  into `permission`(`permission_id`,`permission_name`,`permission_description`) values (1,'staff:all','员工管理全部权限'),(2,'warehouseOrder:read','仓库管理员读权限'),(3,'warehouseOrder','仓库管理员全部权限'),(4,'materialPurchaseRecord:read','原料采购读权限'),(5,'materialPurchaseRecord:all','原料采购所有权限'),(6,'productModelInfo:create','添加产品型号权限'),(7,'productModelInfo:read','查询产品型号权限'),(8,'blowonRecord:read','查询开炉信息权限'),(9,'blowonRecord:create','添加开炉信息权限'),(10,'blowonRecord:update','更新开炉信息权限'),(11,'blankRecord:read','查询胚料登记权限'),(12,'blankRecord:create','添加胚料登记权限'),(13,'blankRecord:update','更新胚料登记权限'),(14,'productProduce:read','查询产品产出权限'),(15,'productProduce:create','添加产品产出权限'),(16,'productProduce:update','更新产品产出权限'),(17,'factoryOutStorageRecord:read','查询出库记录权限'),(18,'factoryOutStorageRecord:create','添加出库记录权限'),(19,'factoryOutStorageRecord:update','更新出库记录权限'),(20,'factoryProductInventory:read','查询工厂库存权限'),(21,'factoryStatistics:read','查询工厂统计权限'),(22,'checkWarehouseProductRecord:read','查询产品清仓登记权限'),(23,'checkWarehouseOthersRecord:read','查询其他清仓登记权限'),(24,'materialInventories:read','查询原料库存信息权限'),(25,'checkWarehouseProductRecord:create','添加产品清仓登记权限'),(26,'checkWarehouseProductRecord:update','更新产品清仓登记权限'),(27,'checkWarehouseOthersRecord:create','添加其他清仓登记权限'),(28,'checkWarehouseOthersRecord:update','更新其他清仓登记权限');
 
 /*Table structure for table `product` */
 
@@ -325,11 +325,11 @@ CREATE TABLE `role_permission` (
   KEY `permission_id` (`permission_id`),
   CONSTRAINT `role_permission_ibfk_1` FOREIGN KEY (`role_id`) REFERENCES `role` (`role_id`),
   CONSTRAINT `role_permission_ibfk_2` FOREIGN KEY (`permission_id`) REFERENCES `permission` (`permission_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8 COMMENT='角色-权限表';
+) ENGINE=InnoDB AUTO_INCREMENT=111 DEFAULT CHARSET=utf8 COMMENT='角色-权限表';
 
 /*Data for the table `role_permission` */
 
-insert  into `role_permission`(`id`,`role_id`,`permission_id`) values (0,1,2),(1,1,1),(2,2,1),(3,1,3),(4,1,4),(5,1,5),(6,1,6),(7,1,7),(8,1,8),(9,1,9),(10,1,10),(11,1,11),(12,1,12),(13,1,13),(14,1,14),(15,1,15),(16,1,16),(17,1,17),(18,1,18),(19,1,19),(20,1,20),(21,1,21),(22,1,22),(23,1,23),(24,1,24),(25,1,25),(26,1,26),(27,1,27),(28,1,28);
+insert  into `role_permission`(`id`,`role_id`,`permission_id`) values (0,1,2),(1,1,1),(2,2,1),(3,1,3),(4,1,4),(5,1,5),(6,1,6),(7,1,7),(8,1,8),(9,1,9),(10,1,10),(11,1,11),(12,1,12),(13,1,13),(14,1,14),(15,1,15),(16,1,16),(17,1,17),(18,1,18),(19,1,19),(20,1,20),(21,1,21),(22,1,22),(23,1,23),(24,1,24),(25,1,25),(26,1,26),(27,1,27),(28,1,28),(29,2,2),(30,2,3),(31,2,4),(32,2,5),(33,2,6),(34,2,7),(35,2,8),(36,2,9),(37,2,10),(38,2,11),(39,2,12),(40,2,13),(41,2,14),(42,2,15),(43,2,16),(44,2,17),(45,2,18),(46,2,19),(47,2,20),(48,2,21),(49,2,22),(50,2,23),(51,2,24),(52,2,25),(53,2,26),(54,2,27),(55,2,28),(82,3,4),(83,3,5),(84,3,6),(85,3,7),(86,3,8),(87,3,9),(88,3,10),(89,3,11),(90,3,12),(91,3,13),(92,3,14),(93,3,15),(94,3,16),(95,3,17),(96,3,18),(97,3,19),(98,3,20),(99,3,21),(100,3,22),(101,3,23),(102,3,24),(103,3,25),(104,3,26),(105,3,27),(106,3,28),(107,3,2),(108,3,1);
 
 /*Table structure for table `staff` */
 

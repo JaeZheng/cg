@@ -1,7 +1,6 @@
 var path1 = "http://localhost:8080/cg/";//本地环境
 var path2 = "http://193.112.26.124/cg/"; //家伟腾讯云
 
-
 var path = path2;
 
 $(function() {
