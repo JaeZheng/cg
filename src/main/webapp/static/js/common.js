@@ -422,7 +422,7 @@ function commonTableFunction(_dataUrl, _dataDiv, _dataAbbreviation) {
     setDateToday(mydate, _dataAbbreviation);
     var todayTime = todayTimeFormat(mydate);
     var today = Date.parse(todayTime);
-    initAjaxUseGet("" + path + _dataUrl, "json", "application/json;charset=utf-8", "" + _dataDiv, "all", 0, today);
+    initAjaxUseGet("" + path + _dataUrl, "json", "application/json;charset=utf-8", "" + _dataDiv, "all", today, today);
 
     //筛选事件
     $("#" + _dataAbbreviation + "-select").unbind('click').on('click', function () {
@@ -1540,6 +1540,15 @@ function statisticsTableFunction(_dataUrl, _dataDiv, _dataAbbreviation) {
     //筛选事件
     $("#" + _dataAbbreviation + "-select").unbind('click').on('click', function () {
         var $selectStartTime = Date.parse($("#" + _dataAbbreviation + "-start-date").val());
+        var $selectEndTime = Date.parse($("#" + _dataAbbreviation + "-end-date").val());
+        if ($selectStartTime > $selectEndTime) {
+            showStatusModal("请选择正确的时间");
+        } else {
+            statisticsInitAjaxUseGet("" + path + _dataUrl, "json", "application/json;charset=utf-8", "" + _dataDiv, "selectPage", $selectStartTime, $selectEndTime);
+        }
+    })
+    $("#" + _dataAbbreviation + "-all").unbind('click').on('click', function () {
+        var $selectStartTime = 0;
         var $selectEndTime = Date.parse($("#" + _dataAbbreviation + "-end-date").val());
         if ($selectStartTime > $selectEndTime) {
             showStatusModal("请选择正确的时间");
