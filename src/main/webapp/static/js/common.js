@@ -1,7 +1,7 @@
 var path1 = "http://localhost:8080/cg/"; //本地环境
 var path2 = "http://193.112.26.124/cg/"; //家伟腾讯云
 
-var path = path2;
+var path = path1;
 
 
 $(document).ready(function () {
@@ -254,6 +254,7 @@ function writeDataToModal(modalID, writeData) {
 // 获取已添加的产品型号,并将修改前的值selectedModel所在的option的属性设为selected
 // 若为空则不显示（对应添加功能）
 function getProductModel($selectModify, selectedModel) {
+	console.log($selectModify,selectedModel);
     $.ajax({
         url: path + "ProductModelInfo/productModels",
         type: "GET",
@@ -421,7 +422,7 @@ function commonTableFunction(_dataUrl, _dataDiv, _dataAbbreviation) {
     setDateToday(mydate, _dataAbbreviation);
     var todayTime = todayTimeFormat(mydate);
     var today = Date.parse(todayTime);
-    initAjaxUseGet("" + path + _dataUrl, "json", "application/json;charset=utf-8", "" + _dataDiv, "all", today, today);
+    initAjaxUseGet("" + path + _dataUrl, "json", "application/json;charset=utf-8", "" + _dataDiv, "all", 0, today);
 
     //筛选事件
     $("#" + _dataAbbreviation + "-select").unbind('click').on('click', function () {
@@ -434,6 +435,16 @@ function commonTableFunction(_dataUrl, _dataDiv, _dataAbbreviation) {
         }
     });
 
+    //所有
+    $("#" + _dataAbbreviation + "-all").unbind('click').on('click', function () {
+        var mydate = new Date();
+
+        var todayTime = todayTimeFormat(mydate);
+        var today = Date.parse(todayTime);
+        var otherday = 0;
+        initAjaxUseGet("" + path + _dataUrl, "json", "application/json;charset=utf-8", "" + _dataDiv, "threeDaysPage", otherday, today);
+    });
+    
     //近三天
     $("#" + _dataAbbreviation + "-threeDays").unbind('click').on('click', function () {
         var mydate = new Date();

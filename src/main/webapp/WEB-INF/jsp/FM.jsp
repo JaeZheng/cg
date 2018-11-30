@@ -40,8 +40,8 @@
             </div>
             <div class="fr">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a id="notification" href="#"><span class="glyphicon glyphicon-envelope"></span> 通知</a></li>
-                    <li><a id="staff-name" href="#"><span class="glyphicon glyphicon-user"></span> staff-name</a></li>
+                    <!-- <li><a id="notification" href="#"><span class="glyphicon glyphicon-envelope"></span> 通知</a></li>
+                    <li><a id="staff-name" href="#"><span class="glyphicon glyphicon-user"></span> staff-name</a></li> -->
                     <li><a id="logout" href="/cg/staff/logout"><span class="glyphicon glyphicon-log-out"></span> 退出</a>
                     </li>
                 </ul>
@@ -115,6 +115,7 @@
                             <label for="mpr-end-date">终止时间 </label><input type="text" name="end-time" id="mpr-end-date"
                                                                           value="">
                             <button id="mpr-select" type="button" class="btn btn-primary">筛选</button>
+                            <button id="mpr-all" type="button" class="btn btn-primary">所有</button>
                             <button id="mpr-threeDays" type="button" class="btn btn-primary">近三天</button>
                             <button id="mpr-aWeek" type="button" class="btn btn-primary">近一周</button>
                             <button id="mpr-twoWeeks" type="button" class="btn btn-primary">近两周</button>
@@ -377,6 +378,7 @@
                             <label for="bor-end-date">终止时间 </label><input type="text" name="end-time" id="bor-end-date"
                                                                           value="">
                             <button id="bor-select" type="button" class="btn btn-primary">筛选</button>
+                            <button id="bor-all" type="button" class="btn btn-primary">所有</button>
                             <button id="bor-threeDays" type="button" class="btn btn-primary">近三天</button>
                             <button id="bor-aWeek" type="button" class="btn btn-primary">近一周</button>
                             <button id="bor-twoWeeks" type="button" class="btn btn-primary">近两周</button>
@@ -517,6 +519,7 @@
                             <label for="lr-end-date">终止时间 </label><input type="text" name="end-time" id="lr-end-date"
                                                                          value="">
                             <button id="lr-select" type="button" class="btn btn-primary">筛选</button>
+                            <button id="lr-all" type="button" class="btn btn-primary">所有</button>
                             <button id="lr-threeDays" type="button" class="btn btn-primary">近三天</button>
                             <button id="lr-aWeek" type="button" class="btn btn-primary">近一周</button>
                             <button id="lr-twoWeeks" type="button" class="btn btn-primary">近两周</button>
@@ -754,6 +757,7 @@
                             <label for="pmir-end-date">终止时间 </label><input type="text" name="end-time"
                                                                            id="pmir-end-date" value="">
                             <button id="pmir-select" type="button" class="btn btn-primary">筛选</button>
+                            <button id="pmir-all" type="button" class="btn btn-primary">所有</button>
                             <button id="pmir-threeDays" type="button" class="btn btn-primary">近三天</button>
                             <button id="pmir-aWeek" type="button" class="btn btn-primary">近一周</button>
                             <button id="pmir-twoWeeks" type="button" class="btn btn-primary">近两周</button>
@@ -952,6 +956,7 @@
                             <label for="ppr-end-date">终止时间 </label><input type="text" name="end-time" id="ppr-end-date"
                                                                           value="">
                             <button id="ppr-select" type="button" class="btn btn-primary">筛选</button>
+                            <button id="ppr-all" type="button" class="btn btn-primary">所有</button>
                             <button id="ppr-threeDays" type="button" class="btn btn-primary">近三天</button>
                             <button id="ppr-aWeek" type="button" class="btn btn-primary">近一周</button>
                             <button id="ppr-twoWeeks" type="button" class="btn btn-primary">近两周</button>
@@ -1141,6 +1146,7 @@
                             <label for="fosr-end-date">终止时间 </label><input type="text" name="end-time"
                                                                            id="fosr-end-date" value="">
                             <button id="fosr-select" type="button" class="btn btn-primary">筛选</button>
+                            <button id="fosr-all" type="button" class="btn btn-primary">所有</button>
                             <button id="fosr-threeDays" type="button" class="btn btn-primary">近三天</button>
                             <button id="fosr-aWeek" type="button" class="btn btn-primary">近一周</button>
                             <button id="fosr-twoWeeks" type="button" class="btn btn-primary">近两周</button>
@@ -1472,6 +1478,7 @@
                             <label for="cwor-end-date">终止时间 </label><input type="text" name="end-time"
                                                                            id="cwor-end-date" value="">
                             <button id="cwor-select" type="button" class="btn btn-primary">筛选</button>
+                            <button id="cwor-all" type="button" class="btn btn-primary">所有</button>
                             <button id="cwor-threeDays" type="button" class="btn btn-primary">近三天</button>
                             <button id="cwor-aWeek" type="button" class="btn btn-primary">近一周</button>
                             <button id="cwor-twoWeeks" type="button" class="btn btn-primary">近两周</button>
@@ -1591,6 +1598,7 @@
                             <label for="cwpr-end-date">终止时间 </label><input type="text" name="end-time"
                                                                            id="cwpr-end-date" value="">
                             <button id="cwpr-select" type="button" class="btn btn-primary">筛选</button>
+                            <button id="cwpr-all" type="button" class="btn btn-primary">所有</button>
                             <button id="cwpr-threeDays" type="button" class="btn btn-primary">近三天</button>
                             <button id="cwpr-aWeek" type="button" class="btn btn-primary">近一周</button>
                             <button id="cwpr-twoWeeks" type="button" class="btn btn-primary">近两周</button>
