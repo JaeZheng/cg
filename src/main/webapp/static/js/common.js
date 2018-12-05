@@ -1,7 +1,7 @@
 var path1 = "http://localhost:8080/cg/"; //本地环境
 var path2 = "http://193.112.26.124/cg/"; //家伟腾讯云
 
-var path = path1;
+var path = path2;
 
 
 $(document).ready(function () {
@@ -585,9 +585,9 @@ function CreateTable(divName, targetId, _url, _startTime, _endTime, _init, pageT
         if (divName === ".factory-order-record-table") {
             $tbody.children("tr:last-child").append('<button type="button" class="btn btn-default table-content-detail" id="row-' + (i + 1) + '" data-toggle="modal" data-target="#myModal">详细信息</button>');
         }
-        /*if ((divName !== ".warehouse-product-inventory-statistics-table") && (divName !== ".product-inventory-statistics-table")) {
-            $tbody.children("tr:last-child").append('<button type="button" class="btn btn-default table-content-modify" >修改</button>');
-        }*/
+//        if ((divName !== ".warehouse-product-inventory-statistics-table") && (divName !== ".product-inventory-statistics-table")) {
+//            $tbody.children("tr:last-child").append('<button type="button" class="btn btn-default table-content-modify" >修改</button>');
+//        }
     }
 
     //广源修改 订单详细信息按钮

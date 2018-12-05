@@ -80,9 +80,9 @@
                                                                       role="tab" data-toggle="tab">工厂库存</a></li>
                 <li class="factory-navtabs"><a name="checkWarehouse" href="#check-warehouse"
                                                                       role="tab" data-toggle="tab">清仓登记</a></li>
-                <li class="factory-navtabs"><a name="factoryStatistics"
+                <!-- <li class="factory-navtabs"><a name="factoryStatistics"
                                                                       href="#factory-statistics" role="tab"
-                                                                      data-toggle="tab">工厂统计</a></li>
+                                                                      data-toggle="tab">工厂统计</a></li> -->
                 <!--<li class="warehouse-navtabs" style="display: none;"><a name="inStorageRecord" href="#in-storage-record"-->
                                                                         <!--role="tab" data-toggle="tab">入库登记</a></li>-->
                 <!--<li class="warehouse-navtabs" style="display: none;"><a id="delivery-record-atag" name="deliveryRecord"-->

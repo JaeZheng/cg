@@ -80,9 +80,9 @@
                                                                       role="tab" data-toggle="tab">工厂库存</a></li>
                 <li class="factory-navtabs" style="display: none;"><a name="checkWarehouse" href="#check-warehouse"
                                                                       role="tab" data-toggle="tab">清仓登记</a></li>
-                <li class="factory-navtabs" style="display: none;"><a name="factoryStatistics"
+                <!-- <li class="factory-navtabs" style="display: none;"><a name="factoryStatistics"
                                                                       href="#factory-statistics" role="tab"
-                                                                      data-toggle="tab">工厂统计</a></li>
+                                                                      data-toggle="tab">工厂统计</a></li> -->
                 <li class="warehouse-navtabs" style="display: none;"><a name="inStorageRecord" href="#in-storage-record"
                                                                         role="tab" data-toggle="tab">入库登记</a></li>
                 <li class="warehouse-navtabs" style="display: none;"><a id="delivery-record-atag" name="deliveryRecord"
@@ -2562,8 +2562,7 @@
                                                                             id="mps-start-date" value="">
                             <label for="mps-end-date">终止时间 </label><input type="text" name="end-time" id="mps-end-date"
                                                                           value="">
-                            <button id="mps-select" type="button" class="btn btn-primary">查看</button>
-                            <button id="mps-all" type="button" class="btn btn-primary">所有</button>
+                            <button id="mps-select" type="button" class="btn btn-primary">查看</button> 
                         </div>
                         <div class="panel-body table-content">
                             <table class="table table-bordered">
