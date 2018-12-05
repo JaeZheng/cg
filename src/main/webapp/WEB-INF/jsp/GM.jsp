@@ -2563,6 +2563,7 @@
                             <label for="mps-end-date">终止时间 </label><input type="text" name="end-time" id="mps-end-date"
                                                                           value="">
                             <button id="mps-select" type="button" class="btn btn-primary">查看</button> 
+							<button id="mps-all" type="button" class="btn btn-primary">所有</button>
                         </div>
                         <div class="panel-body table-content">
                             <table class="table table-bordered">
