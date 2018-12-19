@@ -101,7 +101,8 @@ $(document).ready(function () {
         console.log('getWM');
         //从数据库获取所有仓库管理员
         $.ajax({
-            url: path + "staffs/role/仓库管理员",
+            // url: path + "staffs/role/仓库管理员",
+            url: path + "staffs/searchResult?role=4&state=在职",
             type: "GET",
             contentType: "application/json; charset=utf-8",
             dataType: "json",
