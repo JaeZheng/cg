@@ -35,7 +35,7 @@
                 <ul class="nav navbar-nav">
                     <li class="role-navbar-nav active" id="manager-navbar-nav"><a href="#">经理</a></li>
                     <li class="role-navbar-nav" id="factory-navbar-nav"><a href="#">工厂</a></li>
-                    <!-- <li class="role-navbar-nav" id="warehouse-navbar-nav"><a href="#">仓库</a></li> -->
+                    <li class="role-navbar-nav" id="warehouse-navbar-nav"><a href="#">仓库</a></li>
                 </ul>
             </div>
             <div class="fr">

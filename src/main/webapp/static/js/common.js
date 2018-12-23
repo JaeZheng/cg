@@ -587,12 +587,12 @@ function CreateTable(divName, targetId, _url, _startTime, _endTime, _init, pageT
             $tbody.children("tr:last-child").append('<button type="button" class="btn btn-default table-content-detail" id="row-' + (i + 1) + '" data-toggle="modal" data-target="#myModal">详细信息</button>');
         }
         console.log(divName);
-	    if (divName == ".product-model-info-record-table") {
-	    	$tbody.children("tr:last-child").append('<button type="button" class="btn btn-default table-content-modify" >修改</button>');
-    	}
-//        if ((divName !== ".warehouse-product-inventory-statistics-table") && (divName !== ".product-inventory-statistics-table")) {
-//            $tbody.children("tr:last-child").append('<button type="button" class="btn btn-default table-content-modify" >修改</button>');
-//        }
+//	    if (divName == ".product-model-info-record-table") {
+//	    	$tbody.children("tr:last-child").append('<button type="button" class="btn btn-default table-content-modify" >修改</button>');
+//    	}
+        if ((divName !== ".warehouse-product-inventory-statistics-table") && (divName !== ".product-inventory-statistics-table")) {
+            $tbody.children("tr:last-child").append('<button type="button" class="btn btn-default table-content-modify" >修改</button>');
+        }
     }
 
     //广源修改 订单详细信息按钮
@@ -1335,9 +1335,9 @@ function orderCreateTable(divName, targetId, _url, _startTime, _endTime, _orderN
         if (divName === ".factory-order-record-table") {
             $tbody.children("tr:last-child").append('<button type="button" class="btn btn-info btn-sm table-content-detail" id="row-' + (i + 1) + '" data-toggle="modal" data-target="#myModal">查看</button>');
         }
-//        if (divName !== ".warehouse-product-inventory-statistics-table") {
-//            $tbody.children("tr:last-child").append('<button type="button" class="btn btn-default btn-sm table-content-modify" >修改</button>');
-//        }
+        if (divName !== ".warehouse-product-inventory-statistics-table") {
+            $tbody.children("tr:last-child").append('<button type="button" class="btn btn-default btn-sm table-content-modify" >修改</button>');
+        }
     }
 
     //广源修改 订单详细信息按钮
@@ -3185,7 +3185,7 @@ function CreateTableStaff(divName, targetId, _url, queryObj) {
         if (tableName.indexOf("staffName") !== -1) {
             $tbody.children("tr:last-child").append('<button type="button" class="btn btn-default table-content-detail">查看</button>');
         }
-//        $tbody.children("tr:last-child").append('<button type="button" class="btn btn-default staff-table-content-modify">修改</button>');
+        $tbody.children("tr:last-child").append('<button type="button" class="btn btn-default staff-table-content-modify">修改</button>');
     }
 
     //查看员工的全部信息，完成
