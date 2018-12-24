@@ -29,7 +29,7 @@
     <nav class="navbar navbar-default fixed" id="header-nav" role="navigation" style="width:100%">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a class="navbar-brand" href="#">Legend仓库管理系统</a>
+                <a class="navbar-brand" href="#">仓库管理系统</a>
             </div>
             <div class="fl">
                 <ul class="nav navbar-nav">

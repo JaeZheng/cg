@@ -29,7 +29,7 @@
     <nav class="navbar navbar-default fixed" id="header-nav" role="navigation" style="width:100%">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a class="navbar-brand" href="#">Legend仓库管理系统</a>
+                <a class="navbar-brand" href="#">仓库管理系统</a>
             </div>
             <div class="fl">
                 <ul class="nav navbar-nav">
@@ -40,8 +40,8 @@
             </div>
             <div class="fr">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a id="notification" href="#"><span class="glyphicon glyphicon-envelope"></span> 通知</a></li>
-                    <li><a id="staff-name" href="#"><span class="glyphicon glyphicon-user"></span> staff-name</a></li>
+                    <!-- <li><a id="notification" href="#"><span class="glyphicon glyphicon-envelope"></span> 通知</a></li>
+                    <li><a id="staff-name" href="#"><span class="glyphicon glyphicon-user"></span> staff-name</a></li> -->
                     <li><a id="logout" href="/cg/staff/logout"><span class="glyphicon glyphicon-log-out"></span> 退出</a>
                     </li>
                 </ul>

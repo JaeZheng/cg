@@ -586,11 +586,8 @@ function CreateTable(divName, targetId, _url, _startTime, _endTime, _init, pageT
         if (divName === ".factory-order-record-table") {
             $tbody.children("tr:last-child").append('<button type="button" class="btn btn-default table-content-detail" id="row-' + (i + 1) + '" data-toggle="modal" data-target="#myModal">详细信息</button>');
         }
-        console.log(divName);
-//	    if (divName == ".product-model-info-record-table") {
-//	    	$tbody.children("tr:last-child").append('<button type="button" class="btn btn-default table-content-modify" >修改</button>');
-//    	}
-        if ((divName !== ".warehouse-product-inventory-statistics-table") && (divName !== ".product-inventory-statistics-table")) {
+        console.log(divName)
+        if ((divName !== ".warehouse-product-inventory-statistics-table") && (divName !== ".product-inventory-statistics-table") && (divName !== ".warehouse-order-record-table")) {
             $tbody.children("tr:last-child").append('<button type="button" class="btn btn-default table-content-modify" >修改</button>');
         }
     }
