@@ -1812,9 +1812,9 @@ function initAdd() {
     });
 
     //点击模态框中的确认按钮执行与后台的交互
-    $(".btn-confirm-in-modal").click(function () {
+    $(".btn-confirm-in-modal").unbind('click').click(function () {
         var addUrl = $(this).parents("div.add-form").attr("data-url");
-        console.log("addUrl:" + addUrl);
+//        console.log("addUrl:" + addUrl);
         $(this).passDatasToURL(addUrl, "POST");
     });
 
@@ -2402,7 +2402,7 @@ function initAdd() {
 
 
         //点击模态框中的确认按钮执行与后台的交互
-        $("#modal-btn-submit-add-delivery").click(function () {
+        $("#modal-btn-submit-add-delivery").unbind('click').click(function () {
             var url = "warehouseDeliveryRecord/" + $("#add-delivery-order-num").val();
             $(this).passDatasToURL(url, "POST");
         });
